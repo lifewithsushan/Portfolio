@@ -2,5 +2,6 @@ node_modules
 dist
 .vite
 *.jpeg
+!public/photo.jpeg
 Sushan1.jpeg
 Sushan2.jpeg
