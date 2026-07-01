@@ -28,7 +28,7 @@ export function Footer() {
             </p>
             <div className="mt-6 flex gap-3">
               <motion.a
-                href="https://github.com/"
+                href="https://github.com/lifewithsushan"
                 target="_blank"
                 rel="noreferrer"
                 className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-white/40 transition hover:border-white/20 hover:text-white"
@@ -38,7 +38,7 @@ export function Footer() {
                 <FiGithub size={16} />
               </motion.a>
               <motion.a
-                href="https://www.linkedin.com/"
+                href="https://www.linkedin.com/in/sushankckhatri"
                 target="_blank"
                 rel="noreferrer"
                 className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-white/40 transition hover:border-white/20 hover:text-white"

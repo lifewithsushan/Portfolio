@@ -2,8 +2,8 @@ import { FiGithub, FiGlobe, FiLinkedin, FiMail, FiMapPin, FiPhone } from "react-
 import type { InfoCard, SocialLink } from "@/types";
 
 export const socialLinks: SocialLink[] = [
-  { label: "GitHub", href: "https://github.com/", icon: FiGithub },
-  { label: "LinkedIn", href: "https://www.linkedin.com/", icon: FiLinkedin },
+  { label: "GitHub", href: "https://github.com/lifewithsushan", icon: FiGithub },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/sushankckhatri", icon: FiLinkedin },
   { label: "Portfolio", href: "#projects", icon: FiGlobe },
 ];
 
@@ -22,14 +22,14 @@ export const contactCards: InfoCard[] = [
   },
   {
     label: "LinkedIn",
-    value: "Professional network profile",
-    href: "https://www.linkedin.com/",
+    value: "Connect on LinkedIn",
+    href: "https://www.linkedin.com/in/sushankckhatri",
     icon: FiLinkedin,
   },
   {
     label: "GitHub",
-    value: "Code portfolio and experiments",
-    href: "https://github.com/",
+    value: "View code on GitHub",
+    href: "https://github.com/lifewithsushan",
     icon: FiGithub,
   },
   {

@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { FiArrowRight, FiChevronDown, FiCode, FiCpu, FiDatabase } from "react-icons/fi";
+import { FiArrowRight, FiChevronDown, FiCode, FiCpu, FiDatabase, FiGithub, FiLinkedin } from "react-icons/fi";
 import { FlipButton } from "@/components/ui/FlipButton";
 import { useTypewriter } from "@/hooks/useTypewriter";
 import { staggerContainer, staggerItem } from "@/hooks/useAnimateInView";
@@ -70,6 +70,24 @@ export function Hero() {
                   {label}
                 </span>
               ))}
+              <a
+                href="https://github.com/lifewithsushan"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.03] px-3.5 py-1.5 text-[11px] font-medium text-white/50 hover:text-white hover:border-white/20 transition"
+              >
+                <FiGithub size={12} />
+                GitHub
+              </a>
+              <a
+                href="https://www.linkedin.com/in/sushankckhatri"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.03] px-3.5 py-1.5 text-[11px] font-medium text-white/50 hover:text-white hover:border-white/20 transition"
+              >
+                <FiLinkedin size={12} />
+                LinkedIn
+              </a>
             </motion.div>
 
             <motion.h1 variants={staggerItem} className="text-[clamp(2.5rem,10vw,8rem)] leading-[0.9] tracking-[-0.04em] font-bold">
