@@ -14,6 +14,8 @@ export type Project = {
   features: string[];
   accent: string;
   image: string;
+  challenge: string;
+  result: string;
 };
 
 export type InfoCard = {

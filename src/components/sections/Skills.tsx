@@ -76,7 +76,7 @@ export function Skills() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-[clamp(1.8rem,5vw,3.5rem)] mt-4 leading-tight max-w-xl">
+          <h2 className="text-[clamp(2rem,5.5vw,4rem)] mt-4 leading-tight max-w-xl">
             Tools &amp; technologies I <span className="text-[var(--primary)]">work with</span>
           </h2>
         </motion.div>

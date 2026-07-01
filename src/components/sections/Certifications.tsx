@@ -17,7 +17,7 @@ export function Certifications() {
           viewport={{ once: true }}
           variants={fadeUp}
         >
-          <h2 className="text-[clamp(1.8rem,5vw,3.5rem)] mt-4 leading-tight relative inline-block">
+          <h2 className="text-[clamp(2rem,5.5vw,4rem)] mt-4 leading-tight relative inline-block">
             Certifications &amp; <span className="text-[var(--primary)]">recognition</span>
             <motion.span
               className="absolute -bottom-2 left-0 h-px bg-[var(--primary)]/40"

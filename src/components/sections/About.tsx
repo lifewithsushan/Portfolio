@@ -138,7 +138,7 @@ export function About() {
           >
 
             <motion.h2
-              className="text-[clamp(1.8rem,5vw,3.5rem)] mt-4 leading-tight relative inline-block"
+              className="text-[clamp(2rem,5.5vw,4rem)] mt-4 leading-tight relative inline-block"
               initial="hidden"
               whileInView="show"
               viewport={{ once: true }}
@@ -165,7 +165,7 @@ export function About() {
               transition={{ delay: 0.2 }}
             >
               <RevealWords
-                text="Sushan KC Khatri blends engineering discipline, data curiosity, and modern interface sensibility. From backend APIs to immersive frontends, the goal is always the same: build experiences that are useful, elegant, and future-ready."
+                text="I specialize in building scalable SaaS platforms, logistics systems, and AI-powered web applications using React, FastAPI, PostgreSQL, and Docker. I enjoy solving complex backend problems while creating intuitive user experiences. Every project is an opportunity to deliver real impact."
                 delay={0.2}
               />
             </motion.p>
@@ -178,9 +178,9 @@ export function About() {
               variants={fadeUp}
               transition={{ delay: 0.3 }}
             >
-              <StatItem end={3} suffix="+" label="Years Experience" />
-              <StatItem end={17} suffix="" label="Technologies" />
-              <StatItem end={24} suffix="+" label="Projects" />
+              <StatItem end={3} suffix="+" label="Years of Experience" />
+              <StatItem end={17} suffix="" label="Technologies Mastered" />
+              <StatItem end={15} suffix="+" label="Projects Delivered" />
             </motion.div>
 
             <motion.div

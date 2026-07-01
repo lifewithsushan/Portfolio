@@ -16,7 +16,7 @@ const roles = [
 export function Hero() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const { ref: typeRef, displayed } = useTypewriter(
-    "Full Stack Developer & AI/ML Engineer crafting intelligent digital experiences with modern technologies."
+    "Building scalable full-stack applications that solve real business problems — from logistics dashboards to AI-powered platforms."
   );
 
   const sectionRef = useRef<HTMLDivElement>(null);

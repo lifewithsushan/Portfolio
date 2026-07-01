@@ -17,7 +17,7 @@ export function Projects() {
           viewport={{ once: true }}
           variants={fadeUp}
         >
-          <h2 className="text-[clamp(1.8rem,5vw,3.5rem)] mt-4 leading-tight max-w-xl relative inline-block">
+          <h2 className="text-[clamp(2rem,5.5vw,4rem)] mt-4 leading-tight max-w-xl relative inline-block">
             Featured <span className="text-[var(--primary)]">projects</span>
             <motion.span
               className="absolute -bottom-2 left-0 h-px bg-[var(--primary)]/40"
@@ -63,9 +63,13 @@ export function Projects() {
                   <FiExternalLink size={12} />
                 </div>
                 <h3 className="text-xl font-semibold group-hover:text-[var(--primary)] transition-colors duration-300">{project.title}</h3>
-                <p className="mt-2.5 text-[15px] leading-7 text-white/45 line-clamp-2">
+                <p className="mt-2.5 text-[15px] leading-7 text-white/45 line-clamp-3">
                   {project.description}
                 </p>
+                <div className="mt-4 space-y-2">
+                  <p className="text-[13px] text-white/30"><span className="text-[var(--primary)]/70 font-medium">Problem:</span> {project.challenge}</p>
+                  <p className="text-[13px] text-white/30"><span className="text-[var(--primary)]/70 font-medium">Result:</span> {project.result}</p>
+                </div>
 
                 <div className="mt-5 flex items-center gap-3">
                   <FlipButton
