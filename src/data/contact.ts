@@ -1,4 +1,5 @@
 import { FiGithub, FiGlobe, FiLinkedin, FiMail, FiMapPin, FiPhone } from "react-icons/fi";
+import { SiWhatsapp, SiViber } from "react-icons/si";
 import type { InfoCard, SocialLink } from "@/types";
 
 export const socialLinks: SocialLink[] = [
@@ -10,15 +11,27 @@ export const socialLinks: SocialLink[] = [
 export const contactCards: InfoCard[] = [
   {
     label: "Email",
-    value: "Reach out through the contact form",
-    href: "#contact-form",
+    value: "sushankc89@gmail.com",
+    href: "mailto:sushankc89@gmail.com",
     icon: FiMail,
   },
   {
     label: "Phone",
-    value: "Available upon request",
-    href: "#contact-form",
+    value: "+977 9769364562",
+    href: "tel:+9779769364562",
     icon: FiPhone,
+  },
+  {
+    label: "WhatsApp",
+    value: "Chat on WhatsApp",
+    href: "https://wa.me/9779769364562",
+    icon: SiWhatsapp,
+  },
+  {
+    label: "Viber",
+    value: "Message on Viber",
+    href: "viber://chat?number=%2B9779769364562",
+    icon: SiViber,
   },
   {
     label: "LinkedIn",
@@ -31,12 +44,6 @@ export const contactCards: InfoCard[] = [
     value: "View code on GitHub",
     href: "https://github.com/lifewithsushan",
     icon: FiGithub,
-  },
-  {
-    label: "Portfolio",
-    value: "Immersive interactive web presence",
-    href: "#home",
-    icon: FiGlobe,
   },
   {
     label: "Location",

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { FiGithub, FiLinkedin } from "react-icons/fi";
+import { SiWhatsapp, SiViber } from "react-icons/si";
 import { staggerContainer, staggerItem } from "@/hooks/useAnimateInView";
 
 export function Footer() {
@@ -46,6 +47,26 @@ export function Footer() {
                 whileTap={{ scale: 0.95 }}
               >
                 <FiLinkedin size={16} />
+              </motion.a>
+              <motion.a
+                href="https://wa.me/9779769364562"
+                target="_blank"
+                rel="noreferrer"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-white/40 transition hover:border-white/20 hover:text-white"
+                whileHover={{ scale: 1.1, borderColor: "rgba(212,168,83,0.3)" }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <SiWhatsapp size={16} />
+              </motion.a>
+              <motion.a
+                href="viber://chat?number=%2B9779769364562"
+                target="_blank"
+                rel="noreferrer"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-white/40 transition hover:border-white/20 hover:text-white"
+                whileHover={{ scale: 1.1, borderColor: "rgba(212,168,83,0.3)" }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <SiViber size={16} />
               </motion.a>
             </div>
           </motion.div>

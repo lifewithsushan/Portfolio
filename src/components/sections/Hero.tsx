@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { FiArrowRight, FiChevronDown, FiCode, FiCpu, FiDatabase, FiGithub, FiLinkedin } from "react-icons/fi";
+import { SiWhatsapp, SiViber } from "react-icons/si";
 import { FlipButton } from "@/components/ui/FlipButton";
 import { useTypewriter } from "@/hooks/useTypewriter";
 import { staggerContainer, staggerItem } from "@/hooks/useAnimateInView";
@@ -87,6 +88,24 @@ export function Hero() {
               >
                 <FiLinkedin size={12} />
                 LinkedIn
+              </a>
+              <a
+                href="https://wa.me/9779769364562"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.03] px-3.5 py-1.5 text-[11px] font-medium text-white/50 hover:text-white hover:border-white/20 transition"
+              >
+                <SiWhatsapp size={12} />
+                WhatsApp
+              </a>
+              <a
+                href="viber://chat?number=%2B9779769364562"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.03] px-3.5 py-1.5 text-[11px] font-medium text-white/50 hover:text-white hover:border-white/20 transition"
+              >
+                <SiViber size={12} />
+                Viber
               </a>
             </motion.div>
 
