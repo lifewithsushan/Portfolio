@@ -91,7 +91,7 @@ export function Hero() {
 
             </motion.div>
 
-            <motion.h1 variants={staggerItem} className="text-[clamp(2.5rem,10vw,8rem)] leading-[0.9] tracking-[-0.04em] font-bold">
+            <motion.h1 variants={staggerItem} className="text-[clamp(2.5rem,10vw,8rem)] leading-[0.9] tracking-[-0.04em] font-bold name-float">
               {headingWords.map((word, i) => (
                 <motion.span
                   key={word}
@@ -101,7 +101,7 @@ export function Hero() {
                   className="inline-block mr-[0.12em]"
                   style={{ perspective: "800px" }}
                 >
-                  {i === 2 ? <span className="text-[var(--primary)]">{word}</span> : word}
+                  {i === 2 ? <span className="name-shimmer">{word}</span> : word}
                 </motion.span>
               ))}
             </motion.h1>
