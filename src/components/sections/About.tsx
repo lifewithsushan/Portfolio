@@ -23,7 +23,7 @@ function StatItem({ end, suffix, label }: { end: number; suffix: string; label: 
       <span className="text-[clamp(1.5rem,4vw,2.5rem)] font-bold text-[var(--primary)]">
         {display}
       </span>
-      <p className="text-[11px] text-white/30 mt-1 uppercase tracking-wider">{label}</p>
+      <p className="text-[11px] text-[var(--muted)] mt-1 uppercase tracking-wider">{label}</p>
     </div>
   );
 }
@@ -34,13 +34,13 @@ function ProcessBar({ step, title, label, pct }: { step: string; title: string; 
     <div ref={ref}>
       <div className="flex items-center justify-between mb-3">
         <div className="flex items-center gap-4">
-          <span className="text-sm font-mono text-white/30">{step}</span>
+          <span className="text-sm font-mono text-[var(--text)]/30">{step}</span>
           <div>
             <p className="text-[15px] font-medium">{title}</p>
-            <p className="text-xs text-white/40 mt-0.5">{label}</p>
+            <p className="text-xs text-[var(--muted)] mt-0.5">{label}</p>
           </div>
         </div>
-        <span className="text-sm text-white/30">{pct}%</span>
+        <span className="text-sm text-[var(--text)]/30">{pct}%</span>
       </div>
       <div className="skill-bar">
         <div className="skill-bar-fill" style={{ width: filled ? `${pct}%` : "0%" }} />
@@ -66,7 +66,7 @@ export function About() {
               <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-[var(--primary)]/15 to-transparent blur-md" />
               <div className="absolute -inset-2 rounded-3xl border border-[var(--primary)]/10" />
               <motion.div
-                className="relative rounded-3xl overflow-hidden border border-white/[0.08] aspect-[4/5]"
+                className="relative rounded-3xl overflow-hidden border border-[var(--border)] aspect-[4/5]"
                 initial={{ clipPath: "inset(0 100% 0 0)" }}
                 whileInView={{ clipPath: "inset(0 0% 0 0)" }}
                 viewport={{ once: true }}
@@ -92,7 +92,7 @@ export function About() {
                 return (
                   <motion.div
                     key={skill.name}
-                    className="absolute z-20 rounded-xl border border-white/[0.06] bg-[var(--bg)]/90 backdrop-blur-xl px-3 py-2 shadow-xl"
+                    className="absolute z-20 rounded-xl border border-[var(--border)] bg-[var(--bg)]/90 backdrop-blur-xl px-3 py-2 shadow-xl"
                     style={positions[i] as React.CSSProperties}
                     initial={{ opacity: 0, scale: 0 }}
                     whileInView={{ opacity: 1, scale: 1 }}
@@ -116,7 +116,7 @@ export function About() {
               <FlipButton
                 href="#contact"
                 front={
-                  <span className="inline-flex items-center gap-2 rounded-full border border-white/15 px-6 py-3 text-sm font-medium text-white/70">
+                  <span className="inline-flex items-center gap-2 rounded-full border border-[var(--border)] px-6 py-3 text-sm font-medium text-[var(--text)]/70">
                     Work With Me
                     <FiArrowRight />
                   </span>
@@ -157,7 +157,7 @@ export function About() {
               />
             </motion.h2>
             <motion.p
-              className="mt-6 text-[15px] sm:text-base leading-8 text-white/45 max-w-lg"
+              className="mt-6 text-[15px] sm:text-base leading-8 text-[var(--text)]/45 max-w-lg"
               initial="hidden"
               whileInView="show"
               viewport={{ once: true }}
@@ -209,7 +209,7 @@ export function About() {
             >
               <span className="section-number">Journey</span>
               <div className="relative mt-6">
-                <div className="absolute left-[11px] top-2 bottom-2 w-px bg-white/[0.06]" />
+                <div className="absolute left-[11px] top-2 bottom-2 w-px bg-[var(--border)]" />
                 <div className="space-y-8">
                   {journey.map((j, i) => (
                     <motion.div
@@ -231,7 +231,7 @@ export function About() {
                       </motion.div>
                       <span className="text-xs font-mono text-[var(--primary)]/60 font-medium">{j.year}</span>
                       <p className="text-[15px] font-medium mt-1">{j.title}</p>
-                      <p className="text-sm text-white/40 mt-1.5 leading-6">{j.text}</p>
+                      <p className="text-sm text-[var(--muted)] mt-1.5 leading-6">{j.text}</p>
                     </motion.div>
                   ))}
                 </div>

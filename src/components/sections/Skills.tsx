@@ -27,7 +27,7 @@ function SkillBadge({ skill, index }: { skill: typeof skills[number]; index: num
       <motion.div
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        className="relative inline-flex items-center gap-2 rounded-xl border border-white/[0.06] bg-white/[0.03] px-3.5 py-2.5 cursor-default overflow-hidden"
+        className="relative inline-flex items-center gap-2 rounded-xl border border-[var(--border)] bg-[var(--card-bg)] px-3.5 py-2.5 cursor-default overflow-hidden"
         style={{
           animation: hovered ? "none" : `badge-tilt 4s ease-in-out ${delay}s infinite`,
         }}
@@ -49,7 +49,7 @@ function SkillBadge({ skill, index }: { skill: typeof skills[number]; index: num
             <Icon size={16} />
           </motion.span>
         </span>
-        <span className="text-[13px] font-medium text-white/70 transition-colors duration-300"
+        <span className="text-[13px] font-medium text-[var(--text)]/70 transition-colors duration-300"
           style={{ color: hovered ? "#fff" : "rgba(255,255,255,0.7)" }}
         >
           {skill.name}
@@ -92,9 +92,9 @@ export function Skills() {
             <motion.div
               key={cat}
               variants={staggerItem}
-              className="rounded-2xl border border-white/[0.06] bg-white/[0.015] p-6"
+              className="rounded-2xl border border-[var(--border)] bg-[var(--card-bg)] p-6"
             >
-              <p className="text-xs font-medium uppercase tracking-wider text-white/30 mb-6">{cat}</p>
+              <p className="text-xs font-medium uppercase tracking-wider text-[var(--muted)] mb-6">{cat}</p>
               <div className="flex flex-wrap gap-2.5">
                 {skills
                   .filter((s) => s.category === cat)

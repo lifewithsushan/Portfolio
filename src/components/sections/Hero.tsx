@@ -74,7 +74,7 @@ export function Hero() {
                 href="https://github.com/lifewithsushan"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.03] px-3.5 py-1.5 text-[11px] font-medium text-white/50 hover:text-white hover:border-white/20 transition"
+                className="inline-flex items-center gap-1.5 rounded-full border border-[var(--border)] bg-[var(--card-bg)] px-3.5 py-1.5 text-[11px] font-medium text-[var(--muted)] hover:text-[var(--text)] hover:border-[var(--border)] transition"
               >
                 <FiGithub size={12} />
                 GitHub
@@ -83,7 +83,7 @@ export function Hero() {
                 href="https://www.linkedin.com/in/sushan-kc-93948a2b8"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.03] px-3.5 py-1.5 text-[11px] font-medium text-white/50 hover:text-white hover:border-white/20 transition"
+                className="inline-flex items-center gap-1.5 rounded-full border border-[var(--border)] bg-[var(--card-bg)] px-3.5 py-1.5 text-[11px] font-medium text-[var(--muted)] hover:text-[var(--text)] hover:border-[var(--border)] transition"
               >
                 <FiLinkedin size={12} />
                 LinkedIn
@@ -109,7 +109,7 @@ export function Hero() {
             <motion.div
               variants={staggerItem}
               ref={typeRef}
-              className="mt-5 sm:mt-6 max-w-xl text-sm sm:text-base leading-7 sm:leading-8 text-white/45 min-h-[2.5rem] sm:min-h-[3rem]"
+              className="mt-5 sm:mt-6 max-w-xl text-sm sm:text-base leading-7 sm:leading-8 text-[var(--text)]/45 min-h-[2.5rem] sm:min-h-[3rem]"
             >
               {displayed}
               <span className="inline-block w-[2px] h-[1em] bg-[var(--primary)] ml-0.5 animate-pulse align-middle" />
@@ -119,13 +119,13 @@ export function Hero() {
               <FlipButton
                 href="#projects"
                 front={
-                  <span className="inline-flex items-center gap-2 rounded-full bg-white px-5 sm:px-7 py-2.5 sm:py-3.5 text-xs sm:text-sm font-medium text-[var(--bg)]">
+                  <span className="inline-flex items-center gap-2 rounded-full bg-white px-5 sm:px-7 py-2.5 sm:py-3.5 text-xs sm:text-sm font-medium text-[#0a0a0a]">
                     View Projects
                     <FiArrowRight size={14} />
                   </span>
                 }
                 back={
-                  <span className="inline-flex items-center gap-2 rounded-full border border-white/30 px-5 sm:px-7 py-2.5 sm:py-3.5 text-xs sm:text-sm font-medium text-white">
+                  <span className="inline-flex items-center gap-2 rounded-full border border-[var(--border)] px-5 sm:px-7 py-2.5 sm:py-3.5 text-xs sm:text-sm font-medium text-[var(--text)]">
                     See My Work
                   </span>
                 }
@@ -133,7 +133,7 @@ export function Hero() {
               <FlipButton
                 href="#contact"
                 front={
-                  <span className="inline-flex items-center gap-2 rounded-full border border-white/15 px-5 sm:px-7 py-2.5 sm:py-3.5 text-xs sm:text-sm font-medium text-white/70">
+                  <span className="inline-flex items-center gap-2 rounded-full border border-[var(--border)] px-5 sm:px-7 py-2.5 sm:py-3.5 text-xs sm:text-sm font-medium text-[var(--text)]/70">
                     Hire Me
                   </span>
                 }
@@ -147,7 +147,7 @@ export function Hero() {
 
             <motion.div
               variants={staggerItem}
-              className="mt-10 sm:mt-14 flex items-center gap-2.5 text-[10px] sm:text-xs text-white/35"
+              className="mt-10 sm:mt-14 flex items-center gap-2.5 text-[10px] sm:text-xs text-[var(--text)]/35"
             >
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--primary)] opacity-75" />
@@ -165,13 +165,13 @@ export function Hero() {
         transition={{ delay: 2.5, duration: 0.8 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
       >
-        <span className="text-[9px] uppercase tracking-[0.2em] text-white/20">
+        <span className="text-[9px] uppercase tracking-[0.2em] text-[var(--text)]/20">
           Scroll
         </span>
         <motion.span
           animate={{ y: [0, 6, 0] }}
           transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-          className="text-white/20"
+          className="text-[var(--text)]/20"
         >
           <FiChevronDown size={14} />
         </motion.span>

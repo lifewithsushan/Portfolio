@@ -13,7 +13,7 @@ export function ScrollProgress() {
   }, []);
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-[100] h-[2px] bg-white/[0.04]">
+    <div className="fixed top-0 left-0 right-0 z-[100] h-[2px] bg-[var(--border)]">
       <div
         className="h-full transition-all duration-150 ease-out"
         style={{

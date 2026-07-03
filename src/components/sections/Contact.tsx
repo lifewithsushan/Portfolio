@@ -46,26 +46,26 @@ export function Contact({ formData, formStatus, onSubmit, onFieldChange }: Conta
               <motion.div variants={staggerItem}>
                 <a
                   href="mailto:sushankc89@gmail.com"
-                  className="card-hover flex items-center gap-4 rounded-2xl border border-white/[0.06] p-5"
+                  className="card-hover flex items-center gap-4 rounded-2xl border border-[var(--border)] p-5"
                 >
-                  <FiMail className="text-white/30 shrink-0" size={20} />
+                  <FiMail className="text-[var(--muted)] shrink-0" size={20} />
                   <div>
-                    <p className="text-xs uppercase tracking-wider text-white/30">Email</p>
+                    <p className="text-xs uppercase tracking-wider text-[var(--muted)]">Email</p>
                     <p className="mt-1 text-[15px]">sushankc89@gmail.com</p>
                   </div>
                 </a>
               </motion.div>
               <motion.div variants={staggerItem}>
-                <a href="tel:+9779769364562" className="card-hover flex items-center gap-4 rounded-2xl border border-white/[0.06] p-5">
-                  <FiPhone className="text-white/30 shrink-0" size={20} />
+                <a href="tel:+9779769364562" className="card-hover flex items-center gap-4 rounded-2xl border border-[var(--border)] p-5">
+                  <FiPhone className="text-[var(--muted)] shrink-0" size={20} />
                   <div>
-                    <p className="text-xs uppercase tracking-wider text-white/30">Phone</p>
+                    <p className="text-xs uppercase tracking-wider text-[var(--muted)]">Phone</p>
                     <p className="mt-1 text-[15px]">9769364562</p>
                   </div>
                 </a>
               </motion.div>
               <motion.div variants={staggerItem}>
-                <div className="card-hover flex items-center gap-4 rounded-2xl border border-white/[0.06] p-5">
+                <div className="card-hover flex items-center gap-4 rounded-2xl border border-[var(--border)] p-5">
                   <div className="flex h-5 w-5 items-center justify-center shrink-0">
                     <span className="relative flex h-2.5 w-2.5">
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--primary)] opacity-75" />
@@ -73,7 +73,7 @@ export function Contact({ formData, formStatus, onSubmit, onFieldChange }: Conta
                     </span>
                   </div>
                   <div>
-                    <p className="text-xs uppercase tracking-wider text-white/30">Location</p>
+                    <p className="text-xs uppercase tracking-wider text-[var(--muted)]">Location</p>
                     <p className="mt-1 text-[15px]">Satdobato, Lalitpur, Nepal</p>
                   </div>
                 </div>
@@ -94,7 +94,7 @@ export function Contact({ formData, formStatus, onSubmit, onFieldChange }: Conta
                   value={formData.name}
                   onChange={(e) => onFieldChange("name", e.target.value)}
                   placeholder="Your name"
-                  className="w-full rounded-xl border border-white/[0.08] bg-white/[0.02] px-5 py-4 text-[15px] text-white outline-none transition focus:border-white/20 placeholder:text-white/20 focus:ring-1 focus:ring-[var(--primary)]/20"
+                  className="w-full rounded-xl border border-[var(--border)] bg-[var(--card-bg)] px-5 py-4 text-[15px] text-[var(--text)] outline-none transition focus:border-[var(--border)] placeholder:text-[var(--text)]/20 focus:ring-1 focus:ring-[var(--primary)]/20"
                 />
                 <input
                   required
@@ -102,7 +102,7 @@ export function Contact({ formData, formStatus, onSubmit, onFieldChange }: Conta
                   value={formData.email}
                   onChange={(e) => onFieldChange("email", e.target.value)}
                   placeholder="your@email.com"
-                  className="w-full rounded-xl border border-white/[0.08] bg-white/[0.02] px-5 py-4 text-[15px] text-white outline-none transition focus:border-white/20 placeholder:text-white/20 focus:ring-1 focus:ring-[var(--primary)]/20"
+                  className="w-full rounded-xl border border-[var(--border)] bg-[var(--card-bg)] px-5 py-4 text-[15px] text-[var(--text)] outline-none transition focus:border-[var(--border)] placeholder:text-[var(--text)]/20 focus:ring-1 focus:ring-[var(--primary)]/20"
                 />
               </div>
               <textarea
@@ -111,20 +111,20 @@ export function Contact({ formData, formStatus, onSubmit, onFieldChange }: Conta
                 value={formData.message}
                 onChange={(e) => onFieldChange("message", e.target.value)}
                 placeholder="Tell me about your project."
-                className="w-full rounded-xl border border-white/[0.08] bg-white/[0.02] px-5 py-4 text-[15px] text-white outline-none transition focus:border-white/20 placeholder:text-white/20 focus:ring-1 focus:ring-[var(--primary)]/20 resize-none"
+                className="w-full rounded-xl border border-[var(--border)] bg-[var(--card-bg)] px-5 py-4 text-[15px] text-[var(--text)] outline-none transition focus:border-[var(--border)] placeholder:text-[var(--text)]/20 focus:ring-1 focus:ring-[var(--primary)]/20 resize-none"
               />
               <div className="flex items-center justify-between gap-4">
-                <p className="text-sm text-white/25">I&rsquo;ll respond within 24h</p>
+                <p className="text-sm text-[var(--text)]/25">I&rsquo;ll respond within 24h</p>
                 <FlipButton
                   type="submit"
                   front={
-                    <span className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-medium text-[var(--bg)]">
+                    <span className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-medium text-[#0a0a0a]">
                       Send
                       <FiSend size={14} />
                     </span>
                   }
                   back={
-                    <span className="inline-flex items-center gap-2 rounded-full border border-white/30 px-6 py-3 text-sm font-medium text-white">
+                    <span className="inline-flex items-center gap-2 rounded-full border border-[var(--border)] px-6 py-3 text-sm font-medium text-[var(--text)]">
                       <FiArrowRight />
                       Submit
                     </span>

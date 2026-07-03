@@ -32,17 +32,13 @@ export function Navbar({ mobileMenuOpen, onToggleMobile, onMobileClose }: Navbar
             </div>
             <div className="hidden sm:block">
               <div className="flex items-center gap-1.5">
-                <span className="text-[11px] lg:text-xs font-medium tracking-wide text-white/80 group-hover:text-white transition-colors duration-300">
+                <span className="text-[11px] lg:text-xs font-medium tracking-wide text-[var(--text)]/80 group-hover:text-[var(--text)] transition-colors duration-300">
                   Sushan KC Khatri
                 </span>
-                <span className="hidden lg:inline h-3 w-px bg-white/10" />
-                <span className="hidden lg:inline text-[10px] font-medium tracking-[0.15em] uppercase text-white/40 group-hover:text-white/60 transition-colors duration-300">
+                <span className="hidden lg:inline h-3 w-px bg-[var(--border)]" />
+                <span className="hidden lg:inline text-[10px] font-medium tracking-[0.15em] uppercase text-[var(--muted)] group-hover:text-[var(--text)]/60 transition-colors duration-300">
                   Nepal
                 </span>
-              </div>
-              <div className="flex items-center gap-1.5 mt-0.5">
-                <span className="inline-block h-1.5 w-1.5 rounded-full bg-green-400 animate-pulse" />
-                <span className="text-[9px] tracking-wide text-green-400/70">Available</span>
               </div>
             </div>
           </div>
@@ -60,14 +56,14 @@ export function Navbar({ mobileMenuOpen, onToggleMobile, onMobileClose }: Navbar
             >
               <a
                 href={link.href}
-                className="flip-nav-link group relative block cursor-pointer px-3 py-1.5 rounded-lg hover:bg-white/[0.03] transition-colors duration-300"
+                className="flip-nav-link group relative block cursor-pointer px-3 py-1.5 rounded-lg hover:bg-[var(--card-bg)] transition-colors duration-300"
               >
                 <span
                   className="flip-inner relative block transition-transform duration-500"
                   style={{ transformStyle: "preserve-3d" }}
                 >
                   <span
-                    className="flex items-center text-[13px] lg:text-sm text-white/50 group-hover:text-white/80 transition-colors duration-300"
+                    className="flex items-center text-[13px] lg:text-sm text-[var(--text)]/50 group-hover:text-[var(--text)]/80 transition-colors duration-300"
                     style={{ backfaceVisibility: "hidden" }}
                   >
                     {link.label}
@@ -92,12 +88,12 @@ export function Navbar({ mobileMenuOpen, onToggleMobile, onMobileClose }: Navbar
             <FlipButton
               href="#contact"
               front={
-                <span className="inline-flex rounded-full bg-white px-4 lg:px-5 py-1.5 lg:py-2 text-[12px] lg:text-sm font-medium text-[var(--bg)] whitespace-nowrap">
+                <span className="inline-flex rounded-full bg-white px-4 lg:px-5 py-1.5 lg:py-2 text-[12px] lg:text-sm font-medium text-[#0a0a0a] whitespace-nowrap">
                   Start Project
                 </span>
               }
               back={
-                <span className="inline-flex rounded-full border border-white/30 px-4 lg:px-5 py-1.5 lg:py-2 text-[12px] lg:text-sm font-medium text-white whitespace-nowrap">
+                <span className="inline-flex rounded-full border border-[var(--border)] px-4 lg:px-5 py-1.5 lg:py-2 text-[12px] lg:text-sm font-medium text-[var(--text)] whitespace-nowrap">
                   Let&rsquo;s Talk
                 </span>
               }
@@ -106,14 +102,14 @@ export function Navbar({ mobileMenuOpen, onToggleMobile, onMobileClose }: Navbar
         </nav>
 
         <motion.button
-          type="button"
-          className="md:hidden inline-flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-full border border-white/10 text-white/50 hover:border-[var(--primary)]/30 hover:text-[var(--primary)] transition-all duration-300"
-          onClick={onToggleMobile}
-          aria-label="Menu"
-          whileTap={{ scale: 0.9 }}
-        >
-          {mobileMenuOpen ? <FiX size={15} /> : <FiMenu size={15} />}
-        </motion.button>
+            type="button"
+            className="md:hidden inline-flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-full border border-[var(--border)] text-[var(--muted)] hover:border-[var(--primary)]/30 hover:text-[var(--primary)] transition-all duration-300"
+            onClick={onToggleMobile}
+            aria-label="Menu"
+            whileTap={{ scale: 0.9 }}
+          >
+            {mobileMenuOpen ? <FiX size={15} /> : <FiMenu size={15} />}
+          </motion.button>
       </div>
 
       <AnimatePresence>
@@ -134,7 +130,7 @@ export function Navbar({ mobileMenuOpen, onToggleMobile, onMobileClose }: Navbar
                   initial={{ opacity: 0, x: -8 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.04 }}
-                  className="relative rounded-xl px-4 py-3 text-sm text-white/60 transition hover:bg-white/[0.04] hover:text-white hover:pl-6 duration-300 before:absolute before:left-0 before:top-3 before:bottom-3 before:w-0.5 before:bg-[var(--primary)] before:scale-y-0 hover:before:scale-y-100 before:transition-transform before:duration-300"
+                  className="relative rounded-xl px-4 py-3 text-sm text-[var(--text)]/60 transition hover:bg-[var(--card-bg)] hover:text-[var(--text)] hover:pl-6 duration-300 before:absolute before:left-0 before:top-3 before:bottom-3 before:w-0.5 before:bg-[var(--primary)] before:scale-y-0 hover:before:scale-y-100 before:transition-transform before:duration-300"
                 >
                   {link.label}
                 </motion.a>
@@ -143,12 +139,12 @@ export function Navbar({ mobileMenuOpen, onToggleMobile, onMobileClose }: Navbar
                 <FlipButton
                   href="#contact"
                   front={
-                    <span className="block w-full rounded-xl bg-white px-4 py-3 text-center text-sm font-medium text-[var(--bg)]">
+                    <span className="block w-full rounded-xl bg-white px-4 py-3 text-center text-sm font-medium text-[#0a0a0a]">
                       Start Project
                     </span>
                   }
                   back={
-                    <span className="block w-full rounded-xl border border-white/30 px-4 py-3 text-center text-sm font-medium text-white">
+                    <span className="block w-full rounded-xl border border-[var(--border)] px-4 py-3 text-center text-sm font-medium text-[var(--text)]">
                       Contact Me
                     </span>
                   }

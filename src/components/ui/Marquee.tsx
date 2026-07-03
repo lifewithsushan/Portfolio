@@ -16,10 +16,10 @@ export function Marquee({ items, speed = 25 }: Props) {
         {[...items, ...items].map((item, i) => (
           <span
             key={i}
-            className="inline-flex items-center gap-2.5 rounded-xl border border-white/[0.04] bg-white/[0.015] px-5 py-3"
+            className="inline-flex items-center gap-2.5 rounded-xl border border-[var(--border)] bg-[var(--card-bg)] px-5 py-3"
           >
             <span style={{ color: item.color }} className="inline-flex">{item.icon}</span>
-            <span className="text-sm font-medium text-white/40 whitespace-nowrap">{item.name}</span>
+            <span className="text-sm font-medium text-[var(--muted)] whitespace-nowrap">{item.name}</span>
           </span>
         ))}
       </motion.div>

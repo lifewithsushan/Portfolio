@@ -40,14 +40,14 @@ export function Certifications() {
             const Icon = cert.icon;
             return (
               <motion.div key={cert.title} variants={staggerItem}>
-                <TiltCard intensity={3} className="card-hover rounded-2xl border border-white/[0.06] p-5">
+                <TiltCard intensity={3} className="card-hover rounded-2xl border border-[var(--border)] p-5">
                   <div className="flex items-center gap-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-white/[0.04] text-white/50">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[var(--card-bg)] text-[var(--muted)]">
                       <Icon size={18} />
                     </div>
                     <div>
                       <p className="text-[15px] font-medium">{cert.title}</p>
-                      <p className="text-xs text-white/40 mt-0.5">{cert.issuer}</p>
+                      <p className="text-xs text-[var(--muted)] mt-0.5">{cert.issuer}</p>
                     </div>
                   </div>
                 </TiltCard>
@@ -67,14 +67,14 @@ export function Certifications() {
             const Icon = item.icon;
             return (
               <motion.div key={item.title} variants={staggerItem}>
-                <TiltCard intensity={3} className="card-hover rounded-2xl border border-white/[0.06] p-5">
+                <TiltCard intensity={3} className="card-hover rounded-2xl border border-[var(--border)] p-5">
                   <div className="flex items-center gap-3">
                     <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[var(--primary)]/10 text-[var(--primary)]">
                       <Icon size={18} />
                     </div>
                     <div>
                       <p className="text-[15px] font-medium">{item.title}</p>
-                      <p className="text-xs text-white/40 mt-0.5">{item.text.slice(0, 60)}...</p>
+                      <p className="text-xs text-[var(--muted)] mt-0.5">{item.text.slice(0, 60)}...</p>
                     </div>
                   </div>
                 </TiltCard>
@@ -93,13 +93,13 @@ export function Certifications() {
           <FlipButton
             href="#contact"
             front={
-              <span className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-medium text-[var(--bg)]">
+              <span className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-medium text-[#0a0a0a]">
                 <FiAward />
                 Hire Me
               </span>
             }
             back={
-              <span className="inline-flex items-center gap-2 rounded-full border border-white/30 px-6 py-3 text-sm font-medium text-white">
+              <span className="inline-flex items-center gap-2 rounded-full border border-[var(--border)] px-6 py-3 text-sm font-medium text-[var(--text)]">
                 <FiAward />
                 Let&rsquo;s Connect
               </span>

@@ -32,7 +32,7 @@ export function FAQ() {
 
   return (
     <section id="faq" className="px-6 sm:px-8 py-28 relative overflow-hidden">
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-white/[0.015] blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-[var(--card-bg)] blur-[120px] pointer-events-none" />
       <div className="mx-auto max-w-3xl relative z-10">
         <motion.div
           initial="hidden"
@@ -51,7 +51,7 @@ export function FAQ() {
               transition={{ delay: 0.6, duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
             />
           </h2>
-          <p className="mt-4 text-[15px] text-white/40 max-w-md mx-auto leading-7">
+          <p className="mt-4 text-[15px] text-[var(--muted)] max-w-md mx-auto leading-7">
             Can&rsquo;t find what you&rsquo;re looking for? Reach out and I&rsquo;ll answer personally.
           </p>
         </motion.div>
@@ -75,7 +75,7 @@ export function FAQ() {
                 className="flex w-full items-center justify-between text-left"
               >
                 <span className="text-[15px] font-medium pr-4">{faq.q}</span>
-                <span className="shrink-0 text-white/30 transition-transform duration-300" style={{ transform: openIndex === i ? "rotate(180deg)" : "rotate(0deg)" }}>
+                <span className="shrink-0 text-[var(--muted)] transition-transform duration-300" style={{ transform: openIndex === i ? "rotate(180deg)" : "rotate(0deg)" }}>
                   {openIndex === i ? <FiMinus size={18} /> : <FiPlus size={18} />}
                 </span>
               </button>
@@ -87,7 +87,7 @@ export function FAQ() {
                     animate={{ height: "auto", opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.3, ease: "easeInOut" }}
-                    className="overflow-hidden mt-4 text-[15px] text-white/45 leading-7 max-w-xl"
+                    className="overflow-hidden mt-4 text-[15px] text-[var(--text)]/45 leading-7 max-w-xl"
                   >
                     {faq.a}
                   </motion.p>

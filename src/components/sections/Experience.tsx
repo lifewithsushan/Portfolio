@@ -38,17 +38,17 @@ export function Experience() {
         >
           {experiences.map((item) => (
             <motion.div key={item.title} variants={staggerItem}>
-              <TiltCard intensity={4} className="card-hover rounded-2xl border border-white/[0.06] bg-white/[0.02] p-6 sm:p-8">
+              <TiltCard intensity={4} className="card-hover rounded-2xl border border-[var(--border)] bg-[var(--card-bg)] p-6 sm:p-8">
                 <div className="flex flex-wrap items-start justify-between gap-4">
                   <div>
                     <span className="text-xs font-mono text-[var(--primary)]/60">{item.period}</span>
                     <h3 className="mt-2 text-[17px] font-semibold">{item.title}</h3>
-                    <p className="mt-1 text-sm text-white/40">{item.company}</p>
+                    <p className="mt-1 text-sm text-[var(--muted)]">{item.company}</p>
                   </div>
                 </div>
                 <ul className="mt-5 grid gap-2.5 sm:grid-cols-2">
                   {item.highlights.map((h) => (
-                    <li key={h} className="flex items-center gap-2.5 text-sm text-white/50 leading-6">
+                    <li key={h} className="flex items-center gap-2.5 text-sm text-[var(--text)]/50 leading-6">
                       <span className="h-1.5 w-1.5 rounded-full bg-[var(--primary)]/60 shrink-0" />
                       {h}
                     </li>
@@ -70,7 +70,7 @@ export function Experience() {
             href="/Sushan-KC-Khatri-Resume.html"
             download
             front={
-              <span className="inline-flex items-center gap-2 rounded-full border border-white/15 px-6 py-3 text-sm font-medium text-white/70">
+              <span className="inline-flex items-center gap-2 rounded-full border border-[var(--border)] px-6 py-3 text-sm font-medium text-[var(--text)]/70">
                 <FiDownload />
                 Resume
               </span>

@@ -10,7 +10,7 @@ export function Footer() {
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
-      className="border-t border-white/[0.06] px-6 sm:px-8 py-16"
+      className="border-t border-[var(--border)] px-6 sm:px-8 py-16"
     >
       <div className="mx-auto max-w-7xl">
         <motion.div
@@ -21,10 +21,10 @@ export function Footer() {
           viewport={{ once: true }}
         >
           <motion.div variants={staggerItem}>
-            <a href="#home" className="text-xs font-medium tracking-[0.2em] uppercase text-white/50">
+            <a href="#home" className="text-xs font-medium tracking-[0.2em] uppercase text-[var(--muted)]">
               <span className="text-[var(--primary)]">SK</span> / Nepal
             </a>
-            <p className="mt-4 text-[15px] text-white/35 max-w-xs leading-7">
+            <p className="mt-4 text-[15px] text-[var(--text)]/35 max-w-xs leading-7">
               Full Stack Developer &amp; AI/ML Engineer crafting intelligent digital experiences.
             </p>
             <div className="mt-6 flex gap-3">
@@ -32,7 +32,7 @@ export function Footer() {
                 href="https://github.com/lifewithsushan"
                 target="_blank"
                 rel="noreferrer"
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-white/40 transition hover:border-white/20 hover:text-white"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-[var(--border)] text-[var(--muted)] transition hover:border-[var(--border)] hover:text-[var(--text)]"
                 whileHover={{ scale: 1.1, borderColor: "rgba(212,168,83,0.3)" }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -42,7 +42,7 @@ export function Footer() {
                 href="https://www.linkedin.com/in/sushan-kc-93948a2b8"
                 target="_blank"
                 rel="noreferrer"
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-white/40 transition hover:border-white/20 hover:text-white"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-[var(--border)] text-[var(--muted)] transition hover:border-[var(--border)] hover:text-[var(--text)]"
                 whileHover={{ scale: 1.1, borderColor: "rgba(212,168,83,0.3)" }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -52,7 +52,7 @@ export function Footer() {
                 href="https://wa.me/9779769364562"
                 target="_blank"
                 rel="noreferrer"
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-white/40 transition hover:border-white/20 hover:text-white"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-[var(--border)] text-[var(--muted)] transition hover:border-[var(--border)] hover:text-[var(--text)]"
                 whileHover={{ scale: 1.1, borderColor: "rgba(212,168,83,0.3)" }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -62,7 +62,7 @@ export function Footer() {
                 href="viber://chat?number=%2B9779769364562"
                 target="_blank"
                 rel="noreferrer"
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-white/40 transition hover:border-white/20 hover:text-white"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-[var(--border)] text-[var(--muted)] transition hover:border-[var(--border)] hover:text-[var(--text)]"
                 whileHover={{ scale: 1.1, borderColor: "rgba(212,168,83,0.3)" }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -72,13 +72,13 @@ export function Footer() {
           </motion.div>
 
           <motion.div variants={staggerItem}>
-            <h4 className="text-xs font-medium uppercase tracking-wider text-white/30">Navigation</h4>
+            <h4 className="text-xs font-medium uppercase tracking-wider text-[var(--muted)]">Navigation</h4>
             <div className="mt-5 grid gap-3">
               {["About", "Skills", "Projects", "Experience", "Contact"].map((item) => (
                 <a
                   key={item}
                   href={`#${item.toLowerCase()}`}
-                  className="text-[15px] text-white/40 transition hover:text-white relative w-fit after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-[var(--primary)] after:transition-all after:duration-300 hover:after:w-full"
+                  className="text-[15px] text-[var(--muted)] transition hover:text-[var(--text)] relative w-fit after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-[var(--primary)] after:transition-all after:duration-300 hover:after:w-full"
                 >
                   {item}
                 </a>
@@ -87,8 +87,8 @@ export function Footer() {
           </motion.div>
 
           <motion.div variants={staggerItem}>
-            <h4 className="text-xs font-medium uppercase tracking-wider text-white/30">Contact</h4>
-            <div className="mt-5 space-y-3 text-[15px] text-white/40">
+            <h4 className="text-xs font-medium uppercase tracking-wider text-[var(--muted)]">Contact</h4>
+            <div className="mt-5 space-y-3 text-[15px] text-[var(--muted)]">
               <p>Satdobato, Lalitpur, Nepal</p>
               <p>Available for freelance &amp; collaboration</p>
             </div>
@@ -100,7 +100,7 @@ export function Footer() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3, duration: 0.5 }}
-          className="mt-14 pt-8 border-t border-white/[0.06] text-center text-xs text-white/25"
+          className="mt-14 pt-8 border-t border-[var(--border)] text-center text-xs text-[var(--text)]/25"
         >
           &copy; {new Date().getFullYear()} Sushan KC Khatri. All rights reserved.
         </motion.div>

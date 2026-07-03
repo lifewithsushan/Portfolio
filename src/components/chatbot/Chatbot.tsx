@@ -41,10 +41,10 @@ export function Chatbot() {
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
       {open && (
         <div
-          className="w-[360px] overflow-hidden rounded-2xl border border-white/[0.08] shadow-2xl"
-          style={{ background: "rgba(10,10,15,0.96)", backdropFilter: "blur(24px)" }}
+          className="w-[360px] overflow-hidden rounded-2xl border border-[var(--border)] shadow-2xl bg-[var(--card-bg)]/95"
+          style={{ backdropFilter: "blur(24px)" }}
         >
-          <div className="flex items-center justify-between border-b border-white/[0.06] px-5 py-4">
+          <div className="flex items-center justify-between border-b border-[var(--border)] px-5 py-4">
             <div>
               <p className="text-[11px] uppercase tracking-widest text-[var(--primary)]/80">AI Assistant</p>
               <p className="mt-1 text-sm font-medium">Ask about Sushan</p>
@@ -52,7 +52,7 @@ export function Chatbot() {
             <button
               type="button"
               onClick={() => setOpen(false)}
-              className="flex h-8 w-8 items-center justify-center rounded-full border border-white/10 text-white/50 transition hover:text-white"
+              className="flex h-8 w-8 items-center justify-center rounded-full border border-[var(--border)] text-[var(--muted)] transition hover:text-[var(--text)]"
             >
               <FiX size={14} />
             </button>
@@ -64,7 +64,7 @@ export function Chatbot() {
                 key={i}
                 className={`max-w-[88%] rounded-xl px-4 py-3 text-sm leading-6 ${
                   msg.from === "bot"
-                    ? "border border-white/[0.06] bg-white/[0.03] text-white/70"
+                    ? "border border-[var(--border)] bg-[var(--card-bg)] text-[var(--text)]/70"
                     : "ml-auto bg-[var(--primary)]/10 text-[var(--primary)]"
                 }`}
               >
@@ -73,8 +73,8 @@ export function Chatbot() {
             ))}
           </div>
 
-          <div className="border-t border-white/[0.06] p-4">
-            <div className="flex items-center gap-2 rounded-xl border border-white/[0.08] bg-white/[0.02] p-1.5">
+          <div className="border-t border-[var(--border)] p-4">
+            <div className="flex items-center gap-2 rounded-xl border border-[var(--border)] bg-[var(--card-bg)] p-1.5">
               <input
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
@@ -82,12 +82,12 @@ export function Chatbot() {
                   if (e.key === "Enter") { e.preventDefault(); submit(); }
                 }}
                 placeholder="Ask me anything..."
-                className="w-full bg-transparent px-3 py-2 text-sm outline-none text-white/80 placeholder:text-white/25"
+                className="w-full bg-transparent px-3 py-2 text-sm outline-none text-[var(--text)]/80 placeholder:text-[var(--text)]/25"
               />
               <button
                 type="button"
                 onClick={submit}
-                className="flex h-9 w-9 items-center justify-center rounded-lg bg-[var(--primary)] text-[var(--bg)] transition hover:bg-[var(--primary)]"
+                className="flex h-9 w-9 items-center justify-center rounded-lg bg-[var(--primary)] text-[#0a0a0a] transition hover:bg-[var(--primary)]"
               >
                 <FiSend size={14} />
               </button>
@@ -107,14 +107,14 @@ export function Chatbot() {
           style={{ transformStyle: "preserve-3d", transition: "transform 0.5s" }}
         >
           <div
-            className="flip-btn-front flex items-center gap-2 rounded-full bg-[var(--primary)] px-5 py-3 text-sm font-medium text-[var(--bg)] shadow-lg"
+            className="flip-btn-front flex items-center gap-2 rounded-full bg-[var(--primary)] px-5 py-3 text-sm font-medium text-[#0a0a0a] shadow-lg"
             style={{ backfaceVisibility: "hidden" }}
           >
             <FiMessageSquare />
             {open ? "Close" : "Chat"}
           </div>
           <div
-            className="flip-btn-back absolute inset-0 flex items-center justify-center rounded-full border border-white/15 bg-[var(--bg)] px-5 py-3 text-sm font-medium text-white/80"
+            className="flip-btn-back absolute inset-0 flex items-center justify-center rounded-full border border-[var(--border)] bg-[var(--card-bg)] px-5 py-3 text-sm font-medium text-[var(--text)]/80"
             style={{ backfaceVisibility: "hidden", transform: "rotateX(180deg)" }}
           >
             {open ? "Hide" : "Ask me"}
