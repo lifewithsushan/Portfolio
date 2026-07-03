@@ -67,7 +67,7 @@ export function Experience() {
           className="mt-10 flex"
         >
           <FlipButton
-            href="/Sushan-Khatri-Resume.txt"
+            href="/Sushan-KC-Khatri-Resume.html"
             download
             front={
               <span className="inline-flex items-center gap-2 rounded-full border border-white/15 px-6 py-3 text-sm font-medium text-white/70">

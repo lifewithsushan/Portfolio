@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sushan KC Khatri — Resume</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #0a0a0a;
+      color: #f5f5f0;
+      font-family: "Inter", system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+      padding: 40px 20px;
+    }
+    .page {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #111;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.06);
+      padding: 48px 56px;
+    }
+    @media (max-width: 640px) {
+      .page { padding: 28px 20px; }
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 24px;
+      flex-wrap: wrap;
+      padding-bottom: 28px;
+      border-bottom: 1px solid rgba(212,168,83,0.15);
+    }
+    .header-left h1 {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+    }
+    .header-left h1 span { color: #d4a853; }
+    .header-left .tagline {
+      margin-top: 6px;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.45);
+      font-weight: 400;
+    }
+    .header-right {
+      text-align: right;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.4);
+      line-height: 1.8;
+      flex-shrink: 0;
+    }
+    .header-right a {
+      color: #d4a853;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .header-right a:hover { opacity: 0.7; }
+    .section {
+      margin-top: 28px;
+    }
+    .section-title {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #d4a853;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(212,168,83,0.12);
+      margin-bottom: 16px;
+    }
+    .summary {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.8;
+    }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 12px;
+    }
+    .skill-group h4 {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: 8px;
+    }
+    .skill-group .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .skill-group .tags span {
+      font-size: 0.78rem;
+      padding: 3px 10px;
+      border-radius: 6px;
+      background: rgba(212,168,83,0.08);
+      border: 1px solid rgba(212,168,83,0.12);
+      color: rgba(255,255,255,0.7);
+    }
+    .project {
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .project:last-child { border-bottom: none; }
+    .project h3 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #f5f5f0;
+    }
+    .project .tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin: 6px 0 4px;
+    }
+    .project .tech span {
+      font-size: 0.7rem;
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: rgba(212,168,83,0.06);
+      color: #d4a853;
+      border: 1px solid rgba(212,168,83,0.1);
+    }
+    .project p {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.7;
+    }
+    .exp-item {
+      display: grid;
+      grid-template-columns: 1fr 2.5fr;
+      gap: 16px;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .exp-item:last-child { border-bottom: none; }
+    .exp-left .period {
+      font-size: 0.75rem;
+      color: #d4a853;
+      font-weight: 500;
+    }
+    .exp-left .company {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.35);
+      margin-top: 2px;
+    }
+    .exp-right h3 {
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .exp-right ul {
+      list-style: none;
+      margin-top: 4px;
+    }
+    .exp-right ul li {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.7;
+      padding-left: 14px;
+      position: relative;
+    }
+    .exp-right ul li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: #d4a853;
+    }
+    .certs, .achievements {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    @media (max-width: 500px) {
+      .certs, .achievements { grid-template-columns: 1fr; }
+    }
+    .certs li, .achievements li {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.6);
+      list-style: none;
+      padding: 8px 12px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.04);
+    }
+    .certs li::before { content: "\1F4DC "; margin-right: 4px; }
+    .achievements li::before { content: "\2728 "; margin-right: 4px; }
+    .btn-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 28px;
+      padding: 10px 24px;
+      border-radius: 8px;
+      background: #d4a853;
+      color: #0a0a0a;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: opacity 0.2s;
+      cursor: pointer;
+    }
+    .btn-download:hover { opacity: 0.85; }
+    @media print {
+      body { background: #fff; color: #111; padding: 0; }
+      .page { background: #fff; border: none; padding: 32px; border-radius: 0; }
+      .header-left h1 span { color: #b8943a; }
+      .section-title { color: #b8943a; border-bottom-color: rgba(0,0,0,0.1); }
+      .skill-group .tags span { background: rgba(0,0,0,0.04); border-color: rgba(0,0,0,0.08); color: #333; }
+      .project .tech span { background: rgba(0,0,0,0.04); color: #b8943a; border-color: rgba(0,0,0,0.08); }
+      .project p, .summary, .exp-right ul li, .certs li, .achievements li { color: #555; }
+      .header-right { color: #888; }
+      .header-right a { color: #b8943a; }
+      .btn-download { display: none; }
+      .exp-left .period { color: #b8943a; }
+      .exp-right ul li::before { background: #b8943a; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="header">
+      <div class="header-left">
+        <h1>Sushan <span>KC</span> Khatri</h1>
+        <p class="tagline">Full Stack Developer &amp; AI/ML Engineer</p>
+      </div>
+      <div class="header-right">
+        Satdobato, Lalitpur, Nepal<br />
+        <a href="tel:+9779769364562">+977 9769364562</a><br />
+        <a href="mailto:sushankc89@gmail.com">sushankc89@gmail.com</a><br />
+        <a href="https://github.com/lifewithsushan">github.com/lifewithsushan</a><br />
+        <a href="https://sushankckhatri.com.np">sushankckhatri.com.np</a>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Professional Summary</div>
+      <p class="summary">
+        Full Stack Developer and AI/ML Engineer with hands-on experience building scalable web applications,
+        logistics systems, and data-driven platforms using React, FastAPI, PostgreSQL, and Docker.
+        Passionate about solving real-world problems through clean architecture, intuitive user experiences,
+        and intelligent automation. 3+ years of momentum across development, data analysis, and technical mentorship.
+      </p>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Core Skills</div>
+      <div class="skills-grid">
+        <div class="skill-group">
+          <h4>Frontend</h4>
+          <div class="tags"><span>React</span><span>JavaScript</span><span>TypeScript</span><span>Tailwind CSS</span></div>
+        </div>
+        <div class="skill-group">
+          <h4>Backend</h4>
+          <div class="tags"><span>Python</span><span>FastAPI</span><span>REST API</span><span>JWT Auth</span></div>
+        </div>
+        <div class="skill-group">
+          <h4>Database</h4>
+          <div class="tags"><span>PostgreSQL</span><span>MySQL</span><span>Pandas</span><span>NumPy</span></div>
+        </div>
+        <div class="skill-group">
+          <h4>DevOps &amp; Tools</h4>
+          <div class="tags"><span>Docker</span><span>Git</span><span>Linux</span><span>GitHub Actions</span></div>
+        </div>
+        <div class="skill-group">
+          <h4>AI/ML &amp; Analytics</h4>
+          <div class="tags"><span>Machine Learning</span><span>Data Viz</span><span>Matplotlib</span><span>EDA</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Featured Projects</div>
+
+      <div class="project">
+        <h3>EV Impact on Air Quality — Kathmandu 2024</h3>
+        <div class="tech"><span>Python</span><span>Pandas</span><span>NumPy</span><span>Matplotlib</span><span>EDA</span></div>
+        <p>
+          Cleaned 10,000+ air quality records and correlated EV registration data with PM2.5 readings.
+          Uncovered a 6.8% reduction in EV-adopted zones. Built multi-station visualization dashboards
+          and delivered policy-oriented insight reports for local stakeholders.
+        </p>
+      </div>
+
+      <div class="project">
+        <h3>Student Performance Data Analysis</h3>
+        <div class="tech"><span>Python</span><span>Pandas</span><span>Excel</span><span>Statistical Analysis</span></div>
+        <p>
+          Analyzed 500+ student records across 12 performance indicators. Identified attendance and study
+          hours as top predictors. Segmented students into performance tiers and delivered actionable
+          recommendations for educators.
+        </p>
+      </div>
+
+      <div class="project">
+        <h3>Banking Management System</h3>
+        <div class="tech"><span>Python</span><span>OOP</span><span>File Handling</span></div>
+        <p>
+          Built a full-featured CLI banking application supporting 5 account types with persistent file-based
+          storage, transaction logging, audit trails, and comprehensive error handling. Zero data loss
+          across 1,000+ test transactions.
+        </p>
+      </div>
+
+      <div class="project">
+        <h3>Full Stack Ecommerce Platform</h3>
+        <div class="tech"><span>FastAPI</span><span>React</span><span>PostgreSQL</span><span>JWT</span><span>Cloudinary</span></div>
+        <p>
+          Developed a secure ecommerce platform with JWT authentication, product CRUD, Cloudinary image
+          upload, shopping cart management, and order fulfillment pipeline. RESTful API backed by PostgreSQL.
+        </p>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Experience</div>
+
+      <div class="exp-item">
+        <div class="exp-left">
+          <div class="period">2023 — Present</div>
+          <div class="company">Arniko International Academy</div>
+        </div>
+        <div class="exp-right">
+          <h3>Computer Teacher</h3>
+          <ul>
+            <li>Taught Python programming and computer science fundamentals</li>
+            <li>Mentored 30+ students in coding and digital literacy</li>
+            <li>Managed computer lab systems and learning environments</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-left">
+          <div class="period">2022 — 2023</div>
+          <div class="company">The IT Company</div>
+        </div>
+        <div class="exp-right">
+          <h3>Customer Sales Representative</h3>
+          <ul>
+            <li>Technical product consulting and client communication</li>
+            <li>Sales reporting and data documentation</li>
+            <li>Developed strong client relationship management skills</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Certifications</div>
+      <ul class="certs">
+        <li>Python Essentials — Cisco Networking Academy</li>
+        <li>Data Analysis with Python — Coursera</li>
+        <li>RHCSA Track — Red Hat System Administration</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Achievements</div>
+      <ul class="achievements">
+        <li>100% Merit Scholarship</li>
+        <li>Best Mentor Award</li>
+        <li>Chess Gold Medalist</li>
+      </ul>
+    </div>
+
+    <div style="text-align: center;">
+      <a class="btn-download" href="/Sushan-KC-Khatri-Resume.html" download="Sushan-KC-Khatri-Resume.html">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download Resume
+      </a>
+    </div>
+  </div>
+</body>
+</html>
