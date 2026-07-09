@@ -4,7 +4,7 @@ import type { InfoCard, SocialLink } from "@/types";
 
 export const socialLinks: SocialLink[] = [
   { label: "GitHub", href: "https://github.com/lifewithsushan", icon: FiGithub },
-  { label: "LinkedIn", href: "https://www.linkedin.com/in/sushan-kc-93948a2b8", icon: FiLinkedin },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/sushan-kc-khatri-93948a2b8", icon: FiLinkedin },
   { label: "Portfolio", href: "#projects", icon: FiGlobe },
 ];
 
@@ -36,7 +36,7 @@ export const contactCards: InfoCard[] = [
   {
     label: "LinkedIn",
     value: "Connect on LinkedIn",
-    href: "https://www.linkedin.com/in/sushan-kc-93948a2b8",
+    href: "https://www.linkedin.com/in/sushan-kc-khatri-93948a2b8",
     icon: FiLinkedin,
   },
   {

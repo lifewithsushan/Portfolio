@@ -80,7 +80,7 @@ export function Hero() {
                 GitHub
               </a>
               <a
-                href="https://www.linkedin.com/in/sushan-kc-93948a2b8"
+                href="https://www.linkedin.com/in/sushan-kc-khatri-93948a2b8"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-1.5 rounded-full border border-[var(--border)] bg-[var(--card-bg)] px-3.5 py-1.5 text-[11px] font-medium text-[var(--muted)] hover:text-[var(--text)] hover:border-[var(--border)] transition"

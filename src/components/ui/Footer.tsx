@@ -39,7 +39,7 @@ export function Footer() {
                 <FiGithub size={16} />
               </motion.a>
               <motion.a
-                href="https://www.linkedin.com/in/sushan-kc-93948a2b8"
+                href="https://www.linkedin.com/in/sushan-kc-khatri-93948a2b8"
                 target="_blank"
                 rel="noreferrer"
                 className="flex h-10 w-10 items-center justify-center rounded-full border border-[var(--border)] text-[var(--muted)] transition hover:border-[var(--border)] hover:text-[var(--text)]"
