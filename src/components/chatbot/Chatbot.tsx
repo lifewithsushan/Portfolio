@@ -1,4 +1,4 @@
-import { type KeyboardEvent, useState } from "react";
+import { type KeyboardEvent, useState, useRef, useEffect } from "react";
 import { FiMessageSquare, FiSend, FiX } from "react-icons/fi";
 
 type Message = {
@@ -6,21 +6,16 @@ type Message = {
   text: string;
 };
 
-function generateReply(text: string) {
-  const q = text.toLowerCase();
-  if (q.includes("skill") || q.includes("stack") || q.includes("technology"))
-    return "I work with Python, FastAPI, React, Tailwind CSS, PostgreSQL, Pandas, NumPy, Docker, and ML fundamentals.";
-  if (q.includes("project") || q.includes("work"))
-    return "Highlighted projects include an ecommerce platform (FastAPI + React), EV air-quality analysis, student performance analytics, and a Python banking system.";
-  if (q.includes("experience") || q.includes("job") || q.includes("teacher"))
-    return "I teach Python at Arniko International Academy and previously handled technical sales at The IT Company.";
-  if (q.includes("contact") || q.includes("hire") || q.includes("collaborate"))
-    return "Reach out via email at sushankc89@gmail.com or call 9769364562. I'm open to freelance, startup collabs, and full-time opportunities.";
-  if (q.includes("location") || q.includes("nepal"))
-    return "I'm based in Satdobato, Lalitpur, Nepal — building globally from there.";
-  if (q.includes("hi") || q.includes("hello") || q.includes("hey") || q.includes("greet"))
-    return "Hey! Welcome. I can tell you about Sushan's skills, projects, experience, certifications, or how to reach him. What interests you?";
-  return "I'm a Full Stack Developer & AI/ML Engineer focused on building intelligent, scalable digital experiences.";
+const API_BASE = import.meta.env.VITE_API_URL || "/api";
+
+function TypingDots() {
+  return (
+    <span className="inline-flex items-center gap-1">
+      <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-[var(--text)]/30" style={{ animationDelay: "0ms" }} />
+      <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-[var(--text)]/30" style={{ animationDelay: "150ms" }} />
+      <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-[var(--text)]/30" style={{ animationDelay: "300ms" }} />
+    </span>
+  );
 }
 
 export function Chatbot() {
@@ -29,12 +24,34 @@ export function Chatbot() {
   const [messages, setMessages] = useState<Message[]>([
     { from: "bot", text: "Hey there! I manage everything about Sushan — skills, projects, experience, education, certifications, contact, and more. What would you like to know?" },
   ]);
+  const [loading, setLoading] = useState(false);
+  const bottomRef = useRef<HTMLDivElement>(null);
 
-  const submit = () => {
+  useEffect(() => {
+    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages, loading]);
+
+  const submit = async () => {
     const t = input.trim();
-    if (!t) return;
-    setMessages((prev) => [...prev, { from: "user", text: t }, { from: "bot", text: generateReply(t) }]);
+    if (!t || loading) return;
     setInput("");
+    setMessages((prev) => [...prev, { from: "user", text: t }]);
+    setLoading(true);
+
+    try {
+      const res = await fetch(`${API_BASE}/chat`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: t }),
+      });
+      if (!res.ok) throw new Error("API error");
+      const data = await res.json();
+      setMessages((prev) => [...prev, { from: "bot", text: data.reply }]);
+    } catch {
+      setMessages((prev) => [...prev, { from: "bot", text: "Sorry, I'm having trouble connecting. Please try again later." }]);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -71,6 +88,12 @@ export function Chatbot() {
                 {msg.text}
               </div>
             ))}
+            {loading && (
+              <div className="max-w-[88%] rounded-xl border border-[var(--border)] bg-[var(--card-bg)] px-4 py-3 text-sm text-[var(--text)]/70">
+                <TypingDots />
+              </div>
+            )}
+            <div ref={bottomRef} />
           </div>
 
           <div className="border-t border-[var(--border)] p-4">
@@ -82,12 +105,14 @@ export function Chatbot() {
                   if (e.key === "Enter") { e.preventDefault(); submit(); }
                 }}
                 placeholder="Ask me anything..."
-                className="w-full bg-transparent px-3 py-2 text-sm outline-none text-[var(--text)]/80 placeholder:text-[var(--text)]/25"
+                disabled={loading}
+                className="w-full bg-transparent px-3 py-2 text-sm outline-none text-[var(--text)]/80 placeholder:text-[var(--text)]/25 disabled:opacity-50"
               />
               <button
                 type="button"
                 onClick={submit}
-                className="flex h-9 w-9 items-center justify-center rounded-lg bg-[var(--primary)] text-[#0a0a0a] transition hover:bg-[var(--primary)]"
+                disabled={loading || !input.trim()}
+                className="flex h-9 w-9 items-center justify-center rounded-lg bg-[var(--primary)] text-[#0a0a0a] transition hover:bg-[var(--primary)] disabled:opacity-50"
               >
                 <FiSend size={14} />
               </button>

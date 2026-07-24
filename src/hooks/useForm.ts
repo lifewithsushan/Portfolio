@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { FormData, FormStatus } from "@/types";
-import { sendEmail } from "@/lib/email";
+import { sendContactForm } from "@/lib/api";
 
 export function useForm() {
   const [formData, setFormData] = useState<FormData>({
@@ -13,7 +13,7 @@ export function useForm() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      await sendEmail(formData);
+      await sendContactForm(formData);
       setFormStatus("sent");
       setFormData({ name: "", email: "", message: "" });
     } catch {
