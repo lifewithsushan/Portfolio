@@ -5,8 +5,11 @@ import { Hero } from "@/components/sections/Hero";
 import { About } from "@/components/sections/About";
 import { Skills } from "@/components/sections/Skills";
 import { Projects } from "@/components/sections/Projects";
+import { Services } from "@/components/sections/Services";
 import { Experience } from "@/components/sections/Experience";
 import { Certifications } from "@/components/sections/Certifications";
+import { Testimonials } from "@/components/sections/Testimonials";
+import { Blog } from "@/components/sections/Blog";
 import { FAQ } from "@/components/sections/FAQ";
 import { Contact } from "@/components/sections/Contact";
 import { Footer } from "@/components/ui/Footer";
@@ -15,6 +18,10 @@ import { CursorFollower } from "@/components/ui/CursorFollower";
 import { Particles } from "@/components/ui/Particles";
 import { ScrollProgress } from "@/components/ui/ScrollProgress";
 import { SectionDivider } from "@/components/ui/SectionDivider";
+import { BackToTop } from "@/components/ui/BackToTop";
+import { ShareButton } from "@/components/ui/ShareButton";
+import { GitHubStats } from "@/components/ui/GitHubStats";
+import { ThreeBackground } from "@/components/ui/ThreeBackground";
 import { useForm } from "@/hooks/useForm";
 
 export default function App() {
@@ -52,9 +59,17 @@ export default function App() {
         <SectionDivider />
         <Projects />
         <SectionDivider />
+        <Services />
+        <SectionDivider />
         <Experience />
         <SectionDivider />
         <Certifications />
+        <SectionDivider />
+        <Testimonials />
+        <SectionDivider />
+        <Blog />
+        <SectionDivider />
+        <GitHubStats />
         <SectionDivider />
         <FAQ />
         <SectionDivider />
@@ -66,8 +81,11 @@ export default function App() {
         />
       </main>
 
+      <ThreeBackground />
       <Particles />
       <ScrollProgress />
+      <BackToTop />
+      <ShareButton />
       <Footer />
       <Chatbot />
       <CursorFollower />

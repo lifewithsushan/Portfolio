@@ -95,3 +95,35 @@ export type Particle = {
   duration: string;
   delay: string;
 };
+
+export type Testimonial = {
+  name: string;
+  role: string;
+  text: string;
+  avatar?: string;
+};
+
+export type BlogPost = {
+  title: string;
+  date: string;
+  summary: string;
+  tags: string[];
+  url?: string;
+};
+
+export type Service = {
+  title: string;
+  description: string;
+  price: string;
+  features: string[];
+  icon: IconType;
+};
+
+export type GitHubRepo = {
+  name: string;
+  description: string;
+  stars: number;
+  forks: number;
+  language: string;
+  url: string;
+};

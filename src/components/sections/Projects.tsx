@@ -1,12 +1,22 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { FiArrowRight, FiExternalLink } from "react-icons/fi";
+import { FiArrowRight, FiExternalLink, FiMaximize2 } from "react-icons/fi";
 import { projects } from "@/data/projects";
 import { FlipButton } from "@/components/ui/FlipButton";
 import { TiltCard } from "@/components/ui/TiltCard";
+import { Lightbox } from "@/components/ui/Lightbox";
 import { staggerContainer, staggerItem } from "@/hooks/useAnimateInView";
 import { fadeUp } from "@/hooks/useTextReveal";
 
+const allTags = [...new Set(projects.flatMap((p) => p.tech))].sort();
+const categories = ["All", ...allTags];
+
 export function Projects() {
+  const [activeFilter, setActiveFilter] = useState("All");
+  const [lightbox, setLightbox] = useState<{ src: string; title: string } | null>(null);
+
+  const filtered = activeFilter === "All" ? projects : projects.filter((p) => p.tech.includes(activeFilter));
+
   return (
     <section id="projects" className="px-6 sm:px-8 py-28 relative overflow-hidden">
       <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-[var(--card-bg)] blur-[120px] pointer-events-none" />
@@ -30,19 +40,42 @@ export function Projects() {
         </motion.div>
 
         <motion.div
-          className="mt-14 grid gap-10 md:grid-cols-2"
+          className="mt-10 flex flex-wrap gap-2"
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2, duration: 0.5 }}
+        >
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setActiveFilter(cat)}
+              className={`rounded-full border px-4 py-1.5 text-[12px] font-medium transition-all ${
+                activeFilter === cat
+                  ? "border-[var(--primary)] bg-[var(--primary)]/10 text-[var(--primary)]"
+                  : "border-[var(--border)] text-[var(--muted)] hover:border-[var(--primary)]/30 hover:text-[var(--text)]"
+              }`}
+            >
+              {cat}
+            </button>
+          ))}
+        </motion.div>
+
+        <motion.div
+          className="mt-8 grid gap-10 md:grid-cols-2"
           variants={staggerContainer}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
+          key={activeFilter}
         >
-          {projects.map((project, index) => (
+          {filtered.map((project, index) => (
             <motion.div
               key={project.title}
               variants={staggerItem}
             >
               <TiltCard intensity={4} className="card-hover group relative">
-              <div className="aspect-[16/10] rounded-2xl border border-[var(--border)] bg-[var(--card-bg)] flex items-end p-5 overflow-hidden relative">
+              <div className="aspect-[16/10] rounded-2xl border border-[var(--border)] bg-[var(--card-bg)] flex items-end p-5 overflow-hidden relative cursor-pointer" onClick={() => setLightbox({ src: project.image, title: project.title })}>
                 <img
                   src={project.image}
                   alt={project.title}
@@ -54,6 +87,9 @@ export function Projects() {
                   {project.tech.map((t) => (
                     <span key={t} className="inline-flex rounded-full border border-[var(--border)] bg-[var(--bg)]/60 backdrop-blur-sm px-3 py-1 text-[11px] font-medium text-[var(--text)]/70">{t}</span>
                   ))}
+                </div>
+                <div className="absolute top-3 right-3 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-black/40 text-white/60 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <FiMaximize2 size={13} />
                 </div>
               </div>
 
@@ -94,6 +130,15 @@ export function Projects() {
           ))}
         </motion.div>
       </div>
+
+      {lightbox && (
+        <Lightbox
+          src={lightbox.src}
+          alt={lightbox.title}
+          open={!!lightbox}
+          onClose={() => setLightbox(null)}
+        />
+      )}
     </section>
   );
 }
