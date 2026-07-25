@@ -12,15 +12,30 @@ function getTransporter() {
       user: process.env.EMAIL_USER,
       pass: process.env.EMAIL_PASS,
     },
+    connectionTimeout: 5000,
+    greetingTimeout: 5000,
+    socketTimeout: 5000,
   });
 }
 
 const OWNER_EMAIL = process.env.OWNER_EMAIL || "sushankc89@gmail.com";
 
-async function notifyOwner({ name, email, message }) {
+async function sendEmail({ to, subject, html }) {
+  if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+    console.warn("EMAIL_USER or EMAIL_PASS not set — skipping email");
+    return;
+  }
   const transporter = getTransporter();
   await transporter.sendMail({
-    from: `"Portfolio Contact" <${process.env.EMAIL_USER}>`,
+    from: `"Sushan KC Khatri" <${process.env.EMAIL_USER}>`,
+    to,
+    subject,
+    html,
+  });
+}
+
+async function notifyOwner({ name, email, message }) {
+  await sendEmail({
     to: OWNER_EMAIL,
     subject: `New inquiry from ${name}`,
     html: `
@@ -34,9 +49,7 @@ async function notifyOwner({ name, email, message }) {
 }
 
 async function autoReply({ name, email }) {
-  const transporter = getTransporter();
-  await transporter.sendMail({
-    from: `"Sushan KC Khatri" <${process.env.EMAIL_USER}>`,
+  await sendEmail({
     to: email,
     subject: "Thanks for reaching out!",
     html: `
@@ -74,16 +87,16 @@ contactRouter.post("/", async (req, res) => {
     return res.status(400).json({ error: "Name, email, and message are required" });
   }
 
-  try {
-    await Promise.allSettled([
-      notifyOwner({ name, email, message }),
-      autoReply({ name, email }),
-      sendWhatsApp({ name, email, message }),
-    ]);
+  const results = await Promise.allSettled([
+    notifyOwner({ name, email, message }).catch((e) => console.error("notifyOwner failed:", e.message)),
+    autoReply({ name, email }).catch((e) => console.error("autoReply failed:", e.message)),
+    sendWhatsApp({ name, email, message }).catch((e) => console.error("sendWhatsApp failed:", e.message)),
+  ]);
 
-    res.json({ success: true });
-  } catch (err) {
-    console.error("Contact error:", err);
-    res.status(500).json({ error: "Failed to process contact form" });
-  }
+  const hadFailure = results.some((r) => r.status === "rejected");
+
+  res.json({
+    success: true,
+    note: hadFailure ? "Some notifications failed" : undefined,
+  });
 });
