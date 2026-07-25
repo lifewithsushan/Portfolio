@@ -138,12 +138,6 @@ function TechParticles() {
   );
 }
 
-function GridFloor() {
-  return (
-    <gridHelper args={[20, 20, "#d4a853", "#d4a853"]} position={[0, -3.5, 0]} opacity={0.06} transparent />
-  );
-}
-
 export function ThreeBackground() {
   return (
     <div className="fixed inset-0 pointer-events-none z-0 opacity-40">
@@ -153,7 +147,6 @@ export function ThreeBackground() {
         <pointLight position={[-4, 3, 3]} intensity={0.4} color="#00ffff" />
         <pointLight position={[3, -3, 4]} intensity={0.3} color="#ff6b9d" />
         <Sparkles count={30} scale={12} size={0.8} speed={0.3} opacity={0.15} color="#d4a853" />
-        <GridFloor />
         <OrbitRing radius={2} color="#d4a853" />
         <OrbitRing radius={2.8} color="#00ffff" />
         <TechKnot />
