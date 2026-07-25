@@ -103,6 +103,10 @@ function getFallbackReply(message) {
     return "Sushan has expertise as a Full Stack Developer & AI/ML Engineer. For specific certification details, reach out to him at sushankc89@gmail.com.";
   }
 
+  if (/\b(i )?love (you|u)|i luv/i.test(m)) {
+    return "I love you too! 💛 Sushan sends his love right back. Is there anything else you'd like to know about him?";
+  }
+
   if (/thank|thanks|appreciate|grateful|awesome|great|nice/i.test(m)) {
     return "You're welcome! Feel free to ask if you have any more questions about Sushan. Happy browsing!";
   }
@@ -111,7 +115,13 @@ function getFallbackReply(message) {
     return "Thanks for stopping by! Feel free to come back if you have more questions about Sushan. Have a great day!";
   }
 
-  return "I'm here to help with anything about Sushan — his skills, projects, experience, education, contact info, and more. What would you like to know?";
+  const randomGreetings = [
+    "I'm here to help with anything about Sushan! Ask me about his skills, projects, experience, or how to get in touch.",
+    "Not sure what to ask? Try 'what are his skills?', 'tell me about his projects', or 'how to contact him!'",
+    "I can tell you all about Sushan — his work, his tech stack, his projects, and more. What interests you?",
+    "Curious about Sushan? I know about his experience, education, certifications, contact info, and projects. Ask away!",
+  ];
+  return randomGreetings[Math.floor(Math.random() * randomGreetings.length)];
 }
 
 chatRouter.post("/", async (req, res) => {
