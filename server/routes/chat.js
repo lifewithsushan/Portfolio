@@ -2,7 +2,7 @@ import { Router } from "express";
 
 export const chatRouter = Router();
 
-const MODEL = "gemini-flash-latest";
+const MODEL = "gemini-2.0-flash";
 
 const SYSTEM_PROMPT = `You are an AI assistant for Sushan KC Khatri's portfolio website. Answer questions about Sushan concisely and helpfully.
 
@@ -43,9 +43,13 @@ chatRouter.post("/", async (req, res) => {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
+          system_instruction: {
+            parts: [{ text: SYSTEM_PROMPT }],
+          },
           contents: [
             {
-              parts: [{ text: `${SYSTEM_PROMPT}\n\nUser: ${message}` }],
+              role: "user",
+              parts: [{ text: message }],
             },
           ],
         }),
