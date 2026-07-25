@@ -52,7 +52,13 @@ export default function App() {
 
       <main>
         <Hero />
-        <SectionDivider />
+        <div className="relative">
+          <div
+            className="absolute inset-0 bg-cover bg-center opacity-[0.04] pointer-events-none"
+            style={{ backgroundImage: "url(/photo.jpeg)", backgroundAttachment: "fixed" }}
+          />
+          <SectionDivider />
+        </div>
         <About />
         <SectionDivider />
         <Skills />

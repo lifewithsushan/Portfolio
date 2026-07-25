@@ -37,15 +37,9 @@ export function Hero() {
       onMouseMove={handleMouseMove}
       className="relative min-h-dvh flex items-center px-6 sm:px-8 lg:px-12 overflow-hidden"
     >
-      <motion.div className="absolute inset-0 z-0" style={{ y: bgY }}>
-        <div
-          className="h-[130%] w-full bg-cover bg-center"
-          style={{ backgroundImage: "url(/photo.jpeg)" }}
-        />
-      </motion.div>
-      <div className="absolute inset-0 z-[1] bg-gradient-to-r from-[var(--bg)]/95 via-[var(--bg)]/80 to-[var(--bg)]/40" />
-      <div className="absolute inset-0 z-[1] bg-gradient-to-t from-[var(--bg)] via-transparent to-[var(--bg)]/30" />
-      <div className="absolute inset-0 z-[1] bg-gradient-to-b from-[var(--primary)]/8 via-transparent to-transparent pointer-events-none" />
+      <div className="absolute inset-0 z-0 bg-gradient-to-r from-[var(--bg)] via-[var(--bg)]/90 to-[var(--bg)]/60" />
+      <div className="absolute inset-0 z-0 bg-gradient-to-t from-[var(--bg)] via-transparent to-[var(--bg)]/30" />
+      <div className="absolute inset-0 z-0 bg-gradient-to-b from-[var(--primary)]/8 via-transparent to-transparent pointer-events-none" />
       <div
         className="pointer-events-none absolute inset-0 z-[2] transition-[background] duration-500"
         style={{
