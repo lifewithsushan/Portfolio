@@ -1,41 +1,38 @@
 import { Router } from "express";
-import nodemailer from "nodemailer";
 
 export const contactRouter = Router();
 
-function getTransporter() {
-  return nodemailer.createTransport({
-    host: process.env.EMAIL_HOST || "smtp.gmail.com",
-    port: Number(process.env.EMAIL_PORT) || 587,
-    secure: false,
-    auth: {
-      user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASS,
-    },
-    connectionTimeout: 5000,
-    greetingTimeout: 5000,
-    socketTimeout: 5000,
-  });
-}
-
 const OWNER_EMAIL = process.env.OWNER_EMAIL || "sushankc89@gmail.com";
 
-async function sendEmail({ to, subject, html }) {
-  if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
-    console.warn("EMAIL_USER or EMAIL_PASS not set — skipping email");
+async function sendEmailViaAPI({ to, subject, html }) {
+  const apiKey = process.env.SENDGRID_API_KEY;
+  if (!apiKey) {
+    console.warn("SENDGRID_API_KEY not set — skipping email");
     return;
   }
-  const transporter = getTransporter();
-  await transporter.sendMail({
-    from: `"Sushan KC Khatri" <${process.env.EMAIL_USER}>`,
-    to,
-    subject,
-    html,
+
+  const res = await fetch("https://api.sendgrid.com/v3/mail/send", {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${apiKey}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      personalizations: [{ to: [{ email: to }] }],
+      from: { email: "sushankc89@gmail.com", name: "Sushan KC Khatri" },
+      subject,
+      content: [{ type: "text/html", value: html }],
+    }),
   });
+
+  if (!res.ok) {
+    const body = await res.text();
+    throw new Error(`SendGrid error ${res.status}: ${body}`);
+  }
 }
 
 async function notifyOwner({ name, email, message }) {
-  await sendEmail({
+  await sendEmailViaAPI({
     to: OWNER_EMAIL,
     subject: `New inquiry from ${name}`,
     html: `
@@ -49,7 +46,7 @@ async function notifyOwner({ name, email, message }) {
 }
 
 async function autoReply({ name, email }) {
-  await sendEmail({
+  await sendEmailViaAPI({
     to: email,
     subject: "Thanks for reaching out!",
     html: `
@@ -87,16 +84,11 @@ contactRouter.post("/", async (req, res) => {
     return res.status(400).json({ error: "Name, email, and message are required" });
   }
 
-  const results = await Promise.allSettled([
+  await Promise.allSettled([
     notifyOwner({ name, email, message }).catch((e) => console.error("notifyOwner failed:", e.message)),
     autoReply({ name, email }).catch((e) => console.error("autoReply failed:", e.message)),
     sendWhatsApp({ name, email, message }).catch((e) => console.error("sendWhatsApp failed:", e.message)),
   ]);
 
-  const hadFailure = results.some((r) => r.status === "rejected");
-
-  res.json({
-    success: true,
-    note: hadFailure ? "Some notifications failed" : undefined,
-  });
+  res.json({ success: true });
 });
