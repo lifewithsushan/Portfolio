@@ -1,4 +1,4 @@
-import { useRef, useMemo } from "react";
+import { useRef, useMemo, useState, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Float, MeshDistortMaterial, Sparkles, Line } from "@react-three/drei";
 import type { Mesh, Group } from "three";
@@ -139,8 +139,20 @@ function TechParticles() {
 }
 
 export function ThreeBackground() {
+  const [opacity, setOpacity] = useState(0.5);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const scrollY = window.scrollY;
+      const v = Math.max(0, 0.5 - scrollY / 800);
+      setOpacity(v);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <div className="fixed inset-0 pointer-events-none z-0 opacity-40">
+    <div className="fixed inset-0 pointer-events-none z-0" style={{ opacity }}>
       <Canvas camera={{ position: [0, 0.5, 5.5], fov: 50 }}>
         <ambientLight intensity={0.3} />
         <pointLight position={[5, 5, 5]} intensity={0.6} color="#d4a853" />
