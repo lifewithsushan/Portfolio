@@ -114,7 +114,6 @@ export type BlogPost = {
 export type Service = {
   title: string;
   description: string;
-  price: string;
   features: string[];
   icon: IconType;
 };

@@ -45,7 +45,6 @@ export function Services() {
                   </div>
                   <h3 className="text-lg font-semibold">{service.title}</h3>
                   <p className="mt-2 text-[14px] leading-6 text-[var(--text)]/50">{service.description}</p>
-                  <p className="mt-4 text-xl font-bold text-[var(--primary)]">{service.price}</p>
                   <ul className="mt-4 space-y-2 flex-1">
                     {service.features.map((f) => (
                       <li key={f} className="text-[13px] text-[var(--muted)] flex items-start gap-2">

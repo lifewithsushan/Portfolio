@@ -2,7 +2,7 @@ import { Router } from "express";
 
 export const contactRouter = Router();
 
-const OWNER_EMAIL = process.env.OWNER_EMAIL || "sushankc89@gmail.com";
+const OWNER_EMAIL = process.env.OWNER_EMAIL || "mail@sushankckhatri.com.np";
 
 async function sendEmailViaAPI({ to, subject, html }) {
   const apiKey = process.env.SENDGRID_API_KEY;
@@ -19,7 +19,7 @@ async function sendEmailViaAPI({ to, subject, html }) {
     },
     body: JSON.stringify({
       personalizations: [{ to: [{ email: to }] }],
-      from: { email: "sushankc89@gmail.com", name: "Sushan KC Khatri" },
+      from: { email: "mail@sushankckhatri.com.np", name: "Sushan KC Khatri" },
       subject,
       content: [{ type: "text/html", value: html }],
     }),

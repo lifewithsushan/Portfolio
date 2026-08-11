@@ -13,7 +13,7 @@ services:
       - key: EMAIL_PASS
         sync: false
       - key: OWNER_EMAIL
-        value: sushankc89@gmail.com
+        value: mail@sushankckhatri.com.np
       - key: TWILIO_ACCOUNT_SID
         sync: false
       - key: TWILIO_AUTH_TOKEN

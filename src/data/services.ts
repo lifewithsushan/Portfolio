@@ -5,7 +5,6 @@ export const services: Service[] = [
   {
     title: "Web Development",
     description: "Modern, responsive web applications built with React, FastAPI, and Tailwind CSS.",
-    price: "From $500",
     features: [
       "Single-page or multi-page apps",
       "RESTful API integration",
@@ -17,7 +16,6 @@ export const services: Service[] = [
   {
     title: "AI/ML Solutions",
     description: "Practical machine learning models and data analysis for real-world problems.",
-    price: "From $800",
     features: [
       "Data cleaning & preprocessing",
       "Predictive modeling",
@@ -29,7 +27,6 @@ export const services: Service[] = [
   {
     title: "Backend Systems",
     description: "Scalable backend architecture with PostgreSQL, authentication, and secure APIs.",
-    price: "From $600",
     features: [
       "Database design & optimization",
       "JWT authentication & authorization",
@@ -41,7 +38,6 @@ export const services: Service[] = [
   {
     title: "Tech Mentorship",
     description: "One-on-one guidance in Python, web development, and programming fundamentals.",
-    price: "$30/hr",
     features: [
       "Personalized learning roadmap",
       "Code reviews & feedback",

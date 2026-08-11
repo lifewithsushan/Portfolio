@@ -11,7 +11,7 @@ About Sushan:
 - Teaches Python at Arniko International Academy
 - Previously handled technical sales at The IT Company
 - Based in Satdobato, Lalitpur, Nepal
-- Email: sushankc89@gmail.com | Phone: 9769364562
+- Email: mail@sushankckhatri.com.np | Phone: 9769364562
 - Open to freelance, startup collabs, and full-time opportunities
 
 Tech stack: Python, FastAPI, React, Tailwind CSS, PostgreSQL, Pandas, NumPy, Docker, ML fundamentals
@@ -76,11 +76,11 @@ function getFallbackReply(message) {
   }
 
   if (/education|study|learn|degree|qualification|college|school|university|certification|certificate/i.test(m)) {
-    return "Sushan is a Full Stack Developer & AI/ML Engineer. He teaches Python at Arniko International Academy. For specific educational qualifications, feel free to contact him directly at sushankc89@gmail.com.";
+    return "Sushan is a Full Stack Developer & AI/ML Engineer. He teaches Python at Arniko International Academy. For specific educational qualifications, feel free to contact him directly at mail@sushankckhatri.com.np.";
   }
 
   if (/contact|reach|email|phone|call|whatsapp|viber|telegram|get in touch|hire|freelance|collab|opportunity|job/i.test(m)) {
-    return "You can reach Sushan via email at sushankc89@gmail.com or call him at 9769364562. He's open to freelance projects, startup collaborations, and full-time opportunities!";
+    return "You can reach Sushan via email at mail@sushankckhatri.com.np or call him at 9769364562. He's open to freelance projects, startup collaborations, and full-time opportunities!";
   }
 
   if (/location|based|live|where|satdobato|lalitpur|nepal|address|city|country/i.test(m)) {
@@ -88,7 +88,7 @@ function getFallbackReply(message) {
   }
 
   if (/resume|cv|download|resume\b|hire/i.test(m)) {
-    return "You can find Sushan's resume and all his details right here on his portfolio. For specific inquiries, email him at sushankc89@gmail.com.";
+    return "You can find Sushan's resume and all his details right here on his portfolio. For specific inquiries, email him at mail@sushankckhatri.com.np.";
   }
 
   if (/github|code|repository|open.source|source/i.test(m)) {
@@ -100,7 +100,7 @@ function getFallbackReply(message) {
   }
 
   if (/certification|certificate|course|training|qualification/i.test(m)) {
-    return "Sushan has expertise as a Full Stack Developer & AI/ML Engineer. For specific certification details, reach out to him at sushankc89@gmail.com.";
+    return "Sushan has expertise as a Full Stack Developer & AI/ML Engineer. For specific certification details, reach out to him at mail@sushankckhatri.com.np.";
   }
 
   if (/\b(i )?love (you|u)|i luv/i.test(m)) {

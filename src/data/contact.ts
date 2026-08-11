@@ -11,8 +11,8 @@ export const socialLinks: SocialLink[] = [
 export const contactCards: InfoCard[] = [
   {
     label: "Email",
-    value: "sushankc89@gmail.com",
-    href: "mailto:sushankc89@gmail.com",
+    value: "mail@sushankckhatri.com.np",
+    href: "mailto:mail@sushankckhatri.com.np",
     icon: FiMail,
   },
   {

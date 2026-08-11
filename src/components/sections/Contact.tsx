@@ -45,13 +45,13 @@ export function Contact({ formData, formStatus, onSubmit, onFieldChange }: Conta
             <div className="space-y-4">
               <motion.div variants={staggerItem}>
                 <a
-                  href="mailto:sushankc89@gmail.com"
+                  href="mailto:mail@sushankckhatri.com.np"
                   className="card-hover flex items-center gap-4 rounded-2xl border border-[var(--border)] p-5"
                 >
                   <FiMail className="text-[var(--muted)] shrink-0" size={20} />
                   <div>
                     <p className="text-xs uppercase tracking-wider text-[var(--muted)]">Email</p>
-                    <p className="mt-1 text-[15px]">sushankc89@gmail.com</p>
+                    <p className="mt-1 text-[15px]">mail@sushankckhatri.com.np</p>
                   </div>
                 </a>
               </motion.div>
