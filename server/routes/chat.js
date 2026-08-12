@@ -2,7 +2,7 @@ import { Router } from "express";
 
 export const chatRouter = Router();
 
-const MODEL = "gemini-2.0-flash-lite";
+const MODEL = "gemini-3.1-flash-lite";
 
 const SYSTEM_PROMPT = `You are an AI assistant for Sushan KC Khatri's portfolio website. Answer questions about Sushan concisely and helpfully.
 
