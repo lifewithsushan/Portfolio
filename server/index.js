@@ -18,6 +18,8 @@ app.use(express.json());
 
 app.use("/api/chat", chatRouter);
 app.use("/api/contact", contactRouter);
+app.use("/chat", chatRouter);
+app.use("/contact", contactRouter);
 
 app.get("/api/health", (_req, res) => res.json({ status: "ok" }));
 
