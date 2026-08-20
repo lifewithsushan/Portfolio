@@ -87,16 +87,24 @@ export function Contact({ formData, formStatus, onSubmit, onFieldChange }: Conta
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.15 }}
           >
-            <form onSubmit={onSubmit} className="grid gap-5">
+            <form onSubmit={onSubmit} className="grid gap-5" aria-label="Project inquiry form">
               <div className="grid gap-5 sm:grid-cols-2">
+                <label className="sr-only" htmlFor="contact-name">Your name</label>
                 <input
+                  id="contact-name"
+                  name="name"
+                  autoComplete="name"
                   required
                   value={formData.name}
                   onChange={(e) => onFieldChange("name", e.target.value)}
                   placeholder="Your name"
                   className="w-full rounded-xl border border-[var(--border)] bg-[var(--card-bg)] px-5 py-4 text-[15px] text-[var(--text)] outline-none transition focus:border-[var(--border)] placeholder:text-[var(--text)]/20 focus:ring-1 focus:ring-[var(--primary)]/20"
                 />
+                <label className="sr-only" htmlFor="contact-email">Email address</label>
                 <input
+                  id="contact-email"
+                  name="email"
+                  autoComplete="email"
                   required
                   type="email"
                   value={formData.email}
@@ -105,7 +113,10 @@ export function Contact({ formData, formStatus, onSubmit, onFieldChange }: Conta
                   className="w-full rounded-xl border border-[var(--border)] bg-[var(--card-bg)] px-5 py-4 text-[15px] text-[var(--text)] outline-none transition focus:border-[var(--border)] placeholder:text-[var(--text)]/20 focus:ring-1 focus:ring-[var(--primary)]/20"
                 />
               </div>
+              <label className="sr-only" htmlFor="contact-message">Project details</label>
               <textarea
+                id="contact-message"
+                name="message"
                 required
                 rows={5}
                 value={formData.message}
@@ -119,7 +130,7 @@ export function Contact({ formData, formStatus, onSubmit, onFieldChange }: Conta
                   type="submit"
                   front={
                     <span className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-medium text-[#0a0a0a]">
-                      Send
+                      {formStatus === "sending" ? "Sending…" : "Send"}
                       <FiSend size={14} />
                     </span>
                   }
@@ -134,14 +145,18 @@ export function Contact({ formData, formStatus, onSubmit, onFieldChange }: Conta
             </form>
 
             <AnimatePresence>
-              {formStatus === "sent" && (
+              {(formStatus === "sent" || formStatus === "error") && (
                 <motion.p
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
-                  className="mt-5 rounded-xl border border-[var(--primary)]/20 bg-[var(--primary)]/5 px-5 py-3.5 text-sm text-[var(--primary)]"
+                  role="status"
+                  aria-live="polite"
+                  className={`mt-5 rounded-xl border px-5 py-3.5 text-sm ${formStatus === "sent" ? "border-[var(--primary)]/20 bg-[var(--primary)]/5 text-[var(--primary)]" : "border-red-400/20 bg-red-400/5 text-red-300"}`}
                 >
-                  Thanks! I&rsquo;ll get back to you within 24 hours.
+                  {formStatus === "sent"
+                    ? "Thanks! I’ll get back to you within 24 hours."
+                    : "Your message could not be sent. Please try again or email me directly."}
                 </motion.p>
               )}
             </AnimatePresence>

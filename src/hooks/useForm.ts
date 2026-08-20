@@ -12,13 +12,14 @@ export function useForm() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (formStatus === "sending") return;
+    setFormStatus("sending");
     try {
       await sendContactForm(formData);
       setFormStatus("sent");
       setFormData({ name: "", email: "", message: "" });
     } catch {
-      setFormStatus("sent");
-      setFormData({ name: "", email: "", message: "" });
+      setFormStatus("error");
     }
     window.setTimeout(() => setFormStatus("idle"), 5000);
   };

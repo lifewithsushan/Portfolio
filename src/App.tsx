@@ -36,6 +36,12 @@ export default function App() {
 
   return (
     <div className="relative min-h-screen overflow-x-hidden">
+      <a
+        href="#main-content"
+        className="fixed left-4 top-4 z-[300] -translate-y-24 rounded-lg bg-white px-4 py-2 text-sm font-medium text-black transition-transform focus:translate-y-0"
+      >
+        Skip to main content
+      </a>
       <AnimatePresence>
         {loading && (
           <div className="fixed inset-0 z-[100] flex items-center justify-center bg-[var(--bg)]">
@@ -50,7 +56,7 @@ export default function App() {
         onMobileClose={() => setMobileMenuOpen(false)}
       />
 
-      <main>
+      <main id="main-content">
         <Hero />
         <div className="relative">
           <div

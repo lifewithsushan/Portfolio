@@ -75,11 +75,19 @@ export function Projects() {
               variants={staggerItem}
             >
               <TiltCard intensity={4} className="card-hover group relative">
-              <div className="aspect-[16/10] rounded-2xl border border-[var(--border)] bg-[var(--card-bg)] flex items-end p-5 overflow-hidden relative cursor-pointer" onClick={() => setLightbox({ src: project.image, title: project.title })}>
+              <button
+                type="button"
+                aria-label={`Open a larger preview of ${project.title}`}
+                className="aspect-[16/10] w-full rounded-2xl border border-[var(--border)] bg-[var(--card-bg)] flex items-end p-5 overflow-hidden relative cursor-pointer text-left"
+                onClick={() => setLightbox({ src: project.image, title: project.title })}
+              >
                 <img
                   src={project.image}
-                  alt={project.title}
+                  alt={`${project.title} project by Sushan KC Khatri`}
+                  width={project.imageWidth}
+                  height={project.imageHeight}
                   loading="lazy"
+                  decoding="async"
                   className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-60 transition-opacity duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[var(--primary)]/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -91,7 +99,7 @@ export function Projects() {
                 <div className="absolute top-3 right-3 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-black/40 text-white/60 opacity-0 group-hover:opacity-100 transition-opacity">
                   <FiMaximize2 size={13} />
                 </div>
-              </div>
+              </button>
 
               <div className="mt-6">
                 <div className="flex items-center gap-3 text-xs text-[var(--muted)] mb-2">

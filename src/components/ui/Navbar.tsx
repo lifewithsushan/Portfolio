@@ -20,6 +20,7 @@ export function Navbar({ mobileMenuOpen, onToggleMobile, onMobileClose }: Navbar
       <div className="mx-auto flex max-w-7xl items-center justify-between rounded-full nav-glass px-4 sm:px-5 lg:px-7 py-2.5 sm:py-3 relative before:absolute before:inset-0 before:rounded-full before:pointer-events-none before:border before:border-[var(--primary)]/10 before:opacity-0 before:transition-opacity before:duration-500 hover:before:opacity-100">
         <motion.a
           href="#home"
+          aria-label="Sushan KC Khatri — back to home"
           className="group relative shrink-0"
           whileHover={{ scale: 1.02 }}
           transition={{ duration: 0.2 }}
@@ -44,7 +45,7 @@ export function Navbar({ mobileMenuOpen, onToggleMobile, onMobileClose }: Navbar
           </div>
         </motion.a>
 
-        <nav className="hidden md:flex items-center gap-1 lg:gap-1.5">
+        <nav aria-label="Primary navigation" className="hidden md:flex items-center gap-1 lg:gap-1.5">
           {navLinks.map((link, i) => (
             <motion.div
               key={link.href}
@@ -105,7 +106,9 @@ export function Navbar({ mobileMenuOpen, onToggleMobile, onMobileClose }: Navbar
             type="button"
             className="md:hidden inline-flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-full border border-[var(--border)] text-[var(--muted)] hover:border-[var(--primary)]/30 hover:text-[var(--primary)] transition-all duration-300"
             onClick={onToggleMobile}
-            aria-label="Menu"
+            aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-navigation"
             whileTap={{ scale: 0.9 }}
           >
             {mobileMenuOpen ? <FiX size={15} /> : <FiMenu size={15} />}
@@ -115,6 +118,7 @@ export function Navbar({ mobileMenuOpen, onToggleMobile, onMobileClose }: Navbar
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
+            id="mobile-navigation"
             initial={{ opacity: 0, y: -12 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}

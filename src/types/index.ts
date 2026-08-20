@@ -14,6 +14,8 @@ export type Project = {
   features: string[];
   accent: string;
   image: string;
+  imageWidth: number;
+  imageHeight: number;
   challenge: string;
   result: string;
 };
@@ -85,7 +87,7 @@ export type FormData = {
   message: string;
 };
 
-export type FormStatus = "idle" | "sent";
+export type FormStatus = "idle" | "sending" | "sent" | "error";
 
 export type Particle = {
   id: number;

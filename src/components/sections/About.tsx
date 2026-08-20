@@ -75,7 +75,11 @@ export function About() {
                 <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg)]/60 to-transparent z-10" />
                 <img
                   src="/photo.jpeg"
-                  alt="Sushan KC Khatri"
+                  alt="Sushan KC Khatri, full stack developer and AI/ML engineer in Nepal"
+                  width="1086"
+                  height="1448"
+                  loading="lazy"
+                  decoding="async"
                   className="h-full w-full object-cover"
                 />
               </motion.div>

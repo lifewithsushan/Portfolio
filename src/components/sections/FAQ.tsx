@@ -72,6 +72,8 @@ export function FAQ() {
               <button
                 type="button"
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
+                aria-expanded={openIndex === i}
+                aria-controls={`faq-answer-${i}`}
                 className="flex w-full items-center justify-between text-left"
               >
                 <span className="text-[15px] font-medium pr-4">{faq.q}</span>
@@ -83,6 +85,7 @@ export function FAQ() {
                 {openIndex === i && (
                   <motion.p
                     key="answer"
+                    id={`faq-answer-${i}`}
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: "auto", opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}

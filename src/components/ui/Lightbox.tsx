@@ -25,6 +25,9 @@ export function Lightbox({ src, alt, open, onClose }: LightboxProps) {
     <AnimatePresence>
       {open && (
         <motion.div
+          role="dialog"
+          aria-modal="true"
+          aria-label={`${alt} image preview`}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -32,6 +35,8 @@ export function Lightbox({ src, alt, open, onClose }: LightboxProps) {
           className="fixed inset-0 z-[200] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4"
         >
           <motion.button
+            type="button"
+            aria-label="Close image preview"
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.5 }}

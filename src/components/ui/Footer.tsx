@@ -30,6 +30,7 @@ export function Footer() {
             <div className="mt-6 flex gap-3">
               <motion.a
                 href="https://github.com/lifewithsushan"
+                aria-label="Sushan KC Khatri on GitHub"
                 target="_blank"
                 rel="noreferrer"
                 className="flex h-10 w-10 items-center justify-center rounded-full border border-[var(--border)] text-[var(--muted)] transition hover:border-[var(--border)] hover:text-[var(--text)]"
@@ -40,6 +41,7 @@ export function Footer() {
               </motion.a>
               <motion.a
                 href="https://www.linkedin.com/in/sushan-kc-khatri-93948a2b8"
+                aria-label="Sushan KC Khatri on LinkedIn"
                 target="_blank"
                 rel="noreferrer"
                 className="flex h-10 w-10 items-center justify-center rounded-full border border-[var(--border)] text-[var(--muted)] transition hover:border-[var(--border)] hover:text-[var(--text)]"
@@ -50,6 +52,7 @@ export function Footer() {
               </motion.a>
               <motion.a
                 href="https://wa.me/9779769364562"
+                aria-label="Contact Sushan KC Khatri on WhatsApp"
                 target="_blank"
                 rel="noreferrer"
                 className="flex h-10 w-10 items-center justify-center rounded-full border border-[var(--border)] text-[var(--muted)] transition hover:border-[var(--border)] hover:text-[var(--text)]"
@@ -60,6 +63,7 @@ export function Footer() {
               </motion.a>
               <motion.a
                 href="viber://chat?number=%2B9779769364562"
+                aria-label="Contact Sushan KC Khatri on Viber"
                 target="_blank"
                 rel="noreferrer"
                 className="flex h-10 w-10 items-center justify-center rounded-full border border-[var(--border)] text-[var(--muted)] transition hover:border-[var(--border)] hover:text-[var(--text)]"
